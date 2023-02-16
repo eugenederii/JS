@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Дані
+        let num1 = parseInt(prompt('Перше число', '0'))
+        let num2 = parseInt(prompt('Друге число', '0'))
+
+        //Обчислення
+        let sum = num1 + num2
+        let diff = num1 - num2
+
+        //Результат
+        document.write(`
+        <table border="4px">
+            <tr>2
+                <th>Сумма</th>
+                <td>${sum}</td>
+            </tr>
+            <tr>
+                <th>Часткка</th>
+                <td>${diff}</td>
+            </tr>
+        </table>
+        `)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Дані
+        let priceProduct = parseFloat(prompt('Яка ціна товару?', '0'))
+        let totalMany = parseFloat(prompt('Скільки є грошей?', '0'))
+
+        //Обчислення
+        let remainderMany = totalMany % priceProduct
+
+        if (totalMany < priceProduct) {
+            document.write(`Невистачаає коштів`)
+        } else if (totalMany > priceProduct && remainderMany >= 4) {
+            document.write(`Ось ваш товар та пропонуємо купити лотерейний квиток всього за 4 гривні`)
+        } else {
+            document.write(`Ось ваш товар`)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Дані
+        const minNumRandomPlace = 1
+        const maxNumRandomPlace = 12
+
+        const minNumDay = 0
+        const maxNumDay = 6
+
+        //Обчислення
+        let randomNumPlace = minNumRandomPlace + Math.floor(Math.random() * (maxNumRandomPlace - minNumRandomPlace + 1))
+        let randomNumDay = minNumDay + Math.floor(Math.random() * (maxNumDay - minNumDay + 1))
+
+        let sumRandomNum = randomNumPlace + randomNumDay
+
+        //Результат
+        document.write(`
+            <ul>
+                <li>Номер рандомного місця: ${randomNumPlace}</li>
+                <li>Номер раномного дня: ${randomNumDay}<br></li>
+                <li>Сума рандомних числе = ${sumRandomNum}</li>
+            </ul>
+        `)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Дані
+        let inductionSec = parseInt(prompt('Введіть кількість секунд'))
+        const oneHourInSec = 3600
+
+        //Обчислення
+        let totalHours = Math.floor(inductionSec / oneHourInSec)
+        let totalMinutes = Math.floor((inductionSec % oneHourInSec) / 60)
+        let totalSec = inductionSec - totalHours * oneHourInSec - totalMinutes * 60
+
+        //Результат
+        document.write(`
+            ${inductionSec} секунд - це ${totalHours} годин, ${totalMinutes} хвилин та ${totalSec} секунд
+        `)
+    </script>
+</body>
+
+</html>

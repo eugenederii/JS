@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Дані
+        let quantityProducts = parseFloat(prompt('Кількість товару', '0'))
+        let priceProducts = parseFloat(prompt('Вартість товару', '0'))
+        const totalPdv = 0.05
+
+        //Обчислення
+        let totalPrice = quantityProducts * priceProducts
+        let calculationPdv = totalPrice * totalPdv
+
+        //Результат
+        document.write(`
+        <ul>
+            <li>Загальна вартість товару ${totalPrice} grn</li>
+            <li>ПДВ ${calculationPdv} grn</li>
+        </ul>
+        `)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Дані
+        let quantityJavelins = parseInt(prompt('Скільки потрібно джавелінів?', '0'))
+        let quantityAmbrams = parseInt(prompt('Яка потрібно Абрамсів?', '0'))
+        let quantityBayraktar = parseInt(prompt('Яка потрібно Байрактарів?', '0'))
+
+        const priceeJavelins = parseFloat(prompt('Ціна джавеліна?', '25500 $'))
+        const priceAmbrams = parseFloat(prompt('Ціна Амбрамса?', '100000 $'))
+        const priceBayraktar = parseFloat(prompt('Ціна Байрактара?', '200000 $'))
+
+        //Обчислення
+        let valuePriceeJavelins = quantityJavelins * priceeJavelins
+        let valuePriceAmbrams = quantityAmbrams * priceAmbrams
+        let valuePriceBayraktar = quantityBayraktar * priceBayraktar
+
+
+        let quantityWeapon = quantityAmbrams + quantityBayraktar + quantityJavelins
+        let valueGenral = valuePriceAmbrams + valuePriceeJavelins + valuePriceBayraktar
+
+        //Результат
+        document.write(`
+            <table border="4">
+                <caption>Закупка зброї</caption>
+                <tr>
+                    <th>Назва збої<br></th>
+                    <th>Кількість<br></th>
+                    <th>Ціна $<br></th>
+                    <th>Сума $<br></th>
+                </tr>
+                <tr>
+                    <td>Javelins</td>
+                    <td style="text-align: center;">${quantityJavelins}<br></td>
+                    <td style="text-align: center;">${priceeJavelins} $<br></td>
+                    <td style="text-align: center;">${valuePriceeJavelins} $<br></td>
+                </tr>
+                <tr>
+                    <td>Ambrams<br></td>
+                    <td style="text-align: center;">${quantityAmbrams}<br></td>
+                    <td style="text-align: center;">${priceAmbrams} $</td>
+                    <td style="text-align: center;">${valuePriceAmbrams} $<br></td>
+                </tr>
+                <tr>
+                    <td>Bayraktars<br></td>
+                    <td style="text-align: center;">${quantityBayraktar}<br></td>
+                    <td style="text-align: center;">${priceBayraktar} $<br></td>
+                    <td style="text-align: center;">${valuePriceBayraktar} $<br></td>
+                </tr>
+                <br><br><br>
+                <tr>
+                    <td style="text-decoration:underline;">Всього:<br></td>
+                    <td>${quantityWeapon} одиниць</td>
+                    <td></td>
+                    <td style="text-align: center;">${valueGenral} $</td>
+                </tr>
+            </table>
+        `)
+
+    </script>
+</body>
+
+</html>

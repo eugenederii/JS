@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+
+
+<body>
+
+    <script>
+        //Дані
+        const famousNum = 12
+        let a = parseInt(prompt('Введіть а', '0'))
+        let b = parseInt(prompt('Введіть b', '0'))
+        let c = parseInt(prompt('Введіть c', '0'))
+
+        //Обчислення
+        //1
+        let resultOne = a + famousNum + b
+
+        //2
+        let resultTwo = Math.sqrt((a + b) / (a * 2))
+
+        //3
+        let resultThree = Math.cbrt((a + b) * c)
+
+        //4
+        let resultFour = Math.sin(a / (-b))
+
+        //Результат
+        document.write(`<ul>
+            <li>S1= ${resultOne}</li>
+            <li>S2= ${resultTwo}</li>
+            <li>S3= ${resultThree}</li>
+            <li>S4= ${resultFour}</li>
+        </ul>
+        `)
+
+
+
+    </script>
+</body>
+
+</html>

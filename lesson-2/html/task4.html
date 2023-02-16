@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Дані
+        let lenghtСentimeters = parseInt(prompt('Введіть кількість сантиметрів', '0'))
+        const meter = 100
+        const kilometer = 100000
+
+
+        //Обчислення
+        let totalMeters = lenghtСentimeters / meter
+        let TotalKilometer = lenghtСentimeters / kilometer
+
+        //Резуультат
+        document.write(`
+            <ul>
+                <li>${lenghtСentimeters} сантиметрів - це ${totalMeters} метрів чи ${TotalKilometer.toFixed(2)} кілометрів</li>
+            </ul>
+        `)
+    </script>
+
+</body>
+
+</html>

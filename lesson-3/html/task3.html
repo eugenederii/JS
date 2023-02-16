@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Дані
+        const minNumRandom = 1
+        const maxNumRandom = 5
+        const randomNum = parseFloat(prompt('Введіть перше число', 'від 1 до 5'))
+
+
+        //Обчислення
+        let randomValue = minNumRandom + Math.floor(Math.random() * (maxNumRandom - minNumRandom + 1))
+
+        if (randomNum == randomValue) {
+            alert('В точку!')
+        } else {
+            const randomNum2 = parseFloat(prompt('Введіть перше число', 'від 1 до 5'))
+            if (randomNum2 == randomValue) {
+                alert('В точку!')
+            } else {
+                document.write('Спробуй ще')
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //Дані
+        let birthYear = parseFloat(prompt('Введіть ваш рік народження', '1800'))
+
+        //Створюємо поточну дату та шукаємо компонент року(4 цифри)
+        let nowData = new Date()
+        let currentData = nowData.getFullYear()
+
+        //Обчислення 
+        let userAge = currentData - birthYear
+
+        //Результат
+        document.write(`
+        <p>Ваш вік ${userAge}</p>
+        `)
+
+
+
+    </script>
+
+</body>
+
+</html>
