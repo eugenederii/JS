@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const img = "/lesson-6/img/img1.png";
+      const link = "https://google.com";
+      const title = "Халявні 10 фрі спінів, тисни на картинку";
+
+      function createBanner(img, link, title) {
+        document.write(`<h1>${title}</h1><br>
+             <a href="${link}"><img src="${img}"></a>
+            `);
+      }
+
+      createBanner(img, link, title);
+    </script>
+  </body>
+</html>

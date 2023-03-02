@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function createTable(columns, rows) {
+        let body = "";
+
+        for (let r = 1; r <= rows; r++) {
+          let cells = "";
+          for (let c = 1; c <= columns; c++) {
+            cells += `<td style="border: 1px solid black">you</td>`;
+          }
+
+          body += `<tr>${cells}</tr>`;
+        }
+
+        document.write(`<table style="border: 2px solid black">${body}</table>`);
+      }
+
+      const userColumns = parseInt(prompt("Enter the columns"));
+      const userRows = parseInt(prompt("Enter the rows"));
+
+      createTable(userColumns, userRows);
+    </script>
+  </body>
+</html>

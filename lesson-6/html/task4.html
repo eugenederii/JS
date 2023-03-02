@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function threeSteps(...nums) {
+        let positiv = 0;
+        let even = 0;
+        let bigger100 = 0;
+        for (let i = 0; i < nums.length; i++) {
+          if (nums[i] >= 0) positiv++;
+          if (nums[i] % 2 === 0) even++;
+          if (nums[i] > 100) bigger100++;
+        }
+        return { positiv, even, bigger100 }; // Повертаємо обєкт з результатами обчислень
+      }
+
+      const arr = []; // Сюди ми записуэмо цифри, які ввів користувач
+
+      for (let j = 0; j < 3; j++) {
+        const num = parseInt(prompt(`Введіть число ${j + 1}`));
+
+        arr.push(num); // Записумо(пушимо) числа які вводить користувач в масив
+      }
+
+      const showNums = threeSteps(...arr);
+
+      document.write(`Кількість додатніх чисел = ${showNums.positiv}<br>`);
+      document.write(`Кількість парних чисел = ${showNums.even}<br>`);
+      document.write(`Кількість чисел більших за 100 = ${showNums.bigger100}`);
+    </script>
+  </body>
+</html>

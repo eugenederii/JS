@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function numDay(num) {
+        let result;
+        switch (num) {
+          case 1:
+          case 2:
+          case 3:
+          case 4:
+          case 5:
+            result = "Робочий день";
+            break;
+          case 6:
+          case 7:
+            result = "Вихідний день";
+            break;
+          default:
+            result = "В тиждні всього 7 днів";
+        }
+        return result;
+      }
+      const num = parseInt(prompt("Введіть день тижня", "1-7"));
+      const showResult = numDay(num);
+      document.write(showResult);
+    </script>
+  </body>
+</html>

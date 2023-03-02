@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const minNum = 1;
+      const maxNum = 100;
+      const quantityNum = parseInt(prompt("Кількість списку"));
+      let items = "";
+
+      if (!isFinite(quantityNum)) alert("Введіть ціле число");
+      else {
+        for (i = 0; i < quantityNum; i++) {
+          const randomNum = minNum + Math.floor(Math.random() * (maxNum - minNum + 1));
+          items = items + `<li>${randomNum}</li>`;
+        }
+      }
+      document.write(`
+      <ul>
+        ${items}
+    </ul>`);
+    </script>
+  </body>
+</html>

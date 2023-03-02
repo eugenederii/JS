@@ -1,37 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        //Дані
-        let firstNameChild = prompt("Введіть ім'я першої дитини")
-        let secondNameChild = prompt("Введіть ім'я другої дитини")
-        let quantityCandyFirstChild = parseInt(prompt('Кількість цукерок першої дитини', '0'))
-        let quantityCandySecondChild = parseInt(prompt('Кількість цукерок першої дитини', '0'))
+      //Дані
+      let firstNameChild = prompt("Введіть ім'я першої дитини");
+      let secondNameChild = prompt("Введіть ім'я другої дитини");
+      let quantityCandyFirstChild = parseInt(
+        prompt("Кількість цукерок першої дитини", "0")
+      );
+      let quantityCandySecondChild = parseInt(
+        prompt("Кількість цукерок першої дитини", "0")
+      );
 
-        //Обчислення
+      //Обчислення
 
-
-        if (quantityCandyFirstChild > quantityCandySecondChild) {
-            document.write(`${firstNameChild}`)
-        } else if (quantityCandyFirstChild < quantityCandySecondChild) {
-            document.write(`${secondNameChild}`)
-        } else if (quantityCandyFirstChild == quantityCandySecondChild) {
-            document.write(`Кількість однакова`)
-        } else {
-            document.write(`Введіть данні корректно`)
-        }
-
-
-
+      if (quantityCandyFirstChild > quantityCandySecondChild) {
+        document.write(`${firstNameChild}`);
+      } else if (quantityCandyFirstChild < quantityCandySecondChild) {
+        document.write(`${secondNameChild}`);
+      } else if (quantityCandyFirstChild == quantityCandySecondChild) {
+        document.write(`Кількість однакова`);
+      } else {
+        document.write(`Введіть данні корректно`);
+      }
     </script>
-</body>
-
+  </body>
 </html>

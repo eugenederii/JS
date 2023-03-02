@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const tempOne = 10,
+        tempSecond = -5,
+        tempThird = -20;
+
+      function getNegativeNumberTemp(...arguments) {
+        let count = 0;
+        for (i = 0; i < arguments.length; i++) {
+          if (arguments[i] < 0) count++;
+        }
+        return count;
+      }
+
+      const negativeTemp = getNegativeNumberTemp(tempOne, tempSecond, tempThird);
+      document.write(`Кількість від'ємних показників температури = ${negativeTemp}`);
+    </script>
+  </body>
+</html>

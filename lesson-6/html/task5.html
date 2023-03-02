@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function inch(centimeter) {
+        return centimeter * 2.54;
+      }
+      function pound(kilogram) {
+        return kilogram * 2.2046;
+      }
+      function mile(kilometer) {
+        return kilometer * 0.62;
+      }
+
+      const centimeter = parseFloat(prompt("Введіть доавжину у сантиметрах"));
+      const kilogram = parseFloat(prompt("Введіть кількість кілограмів"));
+      const kilometer = parseFloat(prompt("Введіть кількість кіломеетрів"));
+
+      const showInch = inch(centimeter);
+      const showPound = pound(kilogram);
+      const showMile = mile(kilometer);
+
+      document.write(`${centimeter} сантиметрів це ${showInch} дюймів<br>`);
+      document.write(`${kilogram} кілограмів це ${showPound} фунтів<br>`);
+      document.write(`${kilometer} кілометрів це ${showMile} миль`);
+    </script>
+  </body>
+</html>

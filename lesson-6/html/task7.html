@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const maxNumImg = 4;
+      const minNumImg = 1;
+
+      const img1 = "/lesson-6/img/img1.png";
+      const img2 = "/lesson-6/img/img2.png";
+      const img3 = "/lesson-6/img/img3.png";
+      const img4 = "/lesson-6/img/img4.png";
+
+      function getRandomImg(img1, img2, img3, img4) {
+        let randomNumImg = minNumImg + Math.floor(Math.random() * (maxNumImg - minNumImg + 1));
+        switch (randomNumImg) {
+          case 1:
+            return img1;
+          case 2:
+            return img2;
+          case 3:
+            return img3;
+          case 4:
+            return img4;
+        }
+      }
+
+      const randomImg = getRandomImg(img1, img2, img3, img4);
+      document.write(`<img src="${randomImg}" alt="#">`);
+    </script>
+  </body>
+</html>
