@@ -8,44 +8,27 @@
   </head>
   <body>
     <script>
-      // const temp1 = 25,
-      //   temp2 = -10,
-      //   temp3 = 2,
-      //   temp4 = 3;
+      const temp1 = 25,
+        temp2 = -10,
+        temp3 = 2,
+        temp4 = 3;
 
-      // function getPositiveNumberTemp(...temps) {
-      //   let positivNumbers = [];
-      //   let sum = 0;
-      //   for (let i = 0; i < temps.length; i++) {
-      //     if (temps[i] > 0) {
-      //       positivNumbers.push(temps[i]);
-      //     }
-      //   }
-      //   for (let j = 0; j < positivNumbers.length; j++) {
-      //     sum += positivNumbers[j];
-      //   }
-      //   return sum / positivNumbers.length;
-      // }
-
-      // const positivTemp = getPositiveNumberTemp(temp1, temp2, temp3, temp4);
-      // document.write(`Cереднє значення додатнiх показів температури = ${positivTemp} градусів`);
-
-      let productsPrices = [1000, 20, 31];
-      let productsTitles = ["cheese", "juice", "bread"];
-
-      function getFruitsYouCan(products, prices) {
-        const result = [];
-        const customerPrice = parseFloat(prompt("Скільки у вас є грошей ?"));
-        for (let i = 0; i < prices.length; i++) {
-          if (customerPrice > prices[i]) {
-            result.push(products[i]);
+      function getPositiveNumberTemp(...temps) {
+        let positivNumbers = [];
+        let sum = 0;
+        for (let i = 0; i < temps.length; i++) {
+          if (temps[i] > 0) {
+            positivNumbers.push(temps[i]);
           }
         }
-        return result;
+        for (let j = 0; j < positivNumbers.length; j++) {
+          sum += positivNumbers[j];
+        }
+        return sum / positivNumbers.length;
       }
-      const showResult = getFruitsYouCan(productsTitles, productsPrices);
 
-      document.write(showResult);
+      const positivTemp = getPositiveNumberTemp(temp1, temp2, temp3, temp4);
+      document.write(`Cереднє значення додатнiх показів температури = ${positivTemp} градусів`);
     </script>
   </body>
 </html>

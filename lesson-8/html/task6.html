@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let productsPrices = [1000, 20, 31];
+      let productsTitles = ["cheese", "juice", "bread"];
+
+      function getFruitsYouCan(products, prices) {
+        const result = [];
+        const customerPrice = parseFloat(prompt("Скільки у вас є грошей ?"));
+        for (let i = 0; i < prices.length; i++) {
+          if (customerPrice > prices[i]) {
+            result.push(products[i]);
+          }
+        }
+        return result;
+      }
+      const showResult = getFruitsYouCan(productsTitles, productsPrices);
+
+      document.write(showResult);
+    </script>
+  </body>
+</html>
