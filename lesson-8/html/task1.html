@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getStatusStudent(quantityGrades) {
+        let count2 = 0;
+        let count3 = 0;
+        let count4 = 0;
+        let count5 = 0;
+
+        for (let k = 0; k < quantityGrades.length; k++) {
+          if (quantityGrades[k] === 2) count2++;
+          if (quantityGrades[k] === 3) count3++;
+          if (quantityGrades[k] === 4) count4++;
+          if (quantityGrades[k] === 5) count5++;
+        }
+
+        if (count2 > 0) return "Двійочник";
+        if (count3 > 0) return "Хорошист";
+        if (count4 > 0) return "Добре";
+        if (count5 > 0) return "Відмінно";
+      }
+      const quantityGrades = parseInt(prompt("Яка кількість оцінок?"));
+      const allGrades = [];
+
+      for (let i = 0; i < quantityGrades; i++) {
+        const points = parseInt(prompt("Введіть оцінку"));
+
+        allGrades.push(points);
+      }
+
+      function getGradePoint(quantityGrades) {
+        let averegeGrade = 0;
+        for (let k = 0; k < quantityGrades.length; k++) {
+          averegeGrade += allGrades[k];
+        }
+        return averegeGrade / allGrades.length;
+      }
+
+      const middleValue = getStatusStudent(allGrades);
+      const quality = getGradePoint(allGrades);
+
+      document.write(`Статус ${middleValue},середня оцінка ${quality}`);
+    </script>
+  </body>
+</html>

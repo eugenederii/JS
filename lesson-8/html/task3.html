@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const allNames = ["Коля", "Вася", "Іван", "Настя", "Іван", "Ваня"];
+      function getNameIvan(allNames) {
+        let count = 0;
+        for (let i = 0; i < allNames.length; i++) {
+          if (allNames[i] === "Іван") count++;
+        }
+        return count;
+      }
+
+      const nameIvan = getNameIvan(allNames);
+      document.write(`Ім'я Іван повторюеться ${nameIvan} рази `);
+    </script>
+  </body>
+</html>

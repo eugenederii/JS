@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task8</title>
+  </head>
+  <body>
+    <script>
+      const minNum = -500;
+      const maxNum = 500;
+      function getArrRandomNum(min, max, arrLength) {
+        let arrRandom = [];
+        for (let i = 0; i < arrLength; i++) {
+          let randomNum = min + Math.floor(Math.random() * (max - min + 1));
+          arrRandom.push(randomNum);
+        }
+
+        return arrRandom;
+      }
+
+      function getSumWin(randomArrNum) {
+        let sum = 0;
+        while (true) {
+          const userChoice = parseInt(prompt("Введіть номер від 1 до 20"));
+          console.log(userChoice);
+          if (!isNaN(userChoice)) {
+            sum += randomArrNum[userChoice];
+          } else {
+            break;
+          }
+        }
+        return sum;
+      }
+
+      const arrRandom = getArrRandomNum(minNum, maxNum, 20);
+      const sumWin = getSumWin(arrRandom);
+
+      document.write(`Ваш виграш ${sumWin}`);
+    </script>
+  </body>
+</html>

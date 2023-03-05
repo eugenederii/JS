@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task9</title>
+  </head>
+  <body>
+    <script>
+      const quantityCell = parseInt(prompt("Введіть кількість клітинок"));
+      const quantityShips = parseInt(prompt("Введіть кількість кораблів"));
+
+      function getGameArr(cell, ships) {
+        let arrGame = [];
+
+        for (let i = 0; i < cell; i++) {
+          arrGame.push(0);
+        }
+        console.log(arrGame);
+        for (let j = 0; j < ships; j++) {
+          const randomPutShip = Math.floor(Math.random() * cell);
+          console.log(randomPutShip);
+          if (arrGame[randomPutShip] === 0) arrGame[randomPutShip] = 1;
+        }
+        console.log(arrGame);
+        return arrGame;
+      }
+
+      let readyArr = getGameArr(quantityCell, quantityShips);
+      let wreckedShip = 0;
+
+      for (let k = 0; k < quantityCell; k++) {
+        const shoot = parseInt(prompt("Номер клітинки в яку стріляєте"));
+        if (readyArr[shoot - 1] === 1) {
+          wreckedShip++;
+          alert("Ви влучили");
+          if (wreckedShip === quantityShips) {
+            alert("Перемога");
+            break;
+          }
+        } else {
+          alert("Стріляй");
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const paymentOrder = [8000, 1200, 1300, 1200, 2000, 1800, 3400, 5000, 700, 900, 1300, 1200];
+
+      function getDataPaymentInAYear(payment) {
+        let sum = 0;
+        for (let i = 0; i < paymentOrder.length; i++) {
+          sum += paymentOrder[i];
+        }
+        return sum / paymentOrder.length;
+      }
+
+      //   const show = getDataPaymentInAYear(paymentOrder);
+      //   document.write(show.toFixed(2));
+
+      function getDataPaymentInFirstHalfYear(payment) {
+        let sum = 0;
+        for (i = 0; i < 7; i++) {
+          sum += paymentOrder[i];
+        }
+        return sum;
+      }
+
+      function getDataPaymentInSecondtHalfYear(payment) {
+        let sum = 0;
+        for (i = 6; i < paymentOrder.length; i++) {
+          sum += paymentOrder[i];
+        }
+        return sum;
+      }
+
+      function getDataPaymentInSummer(payment) {
+        let sum = 0;
+        for (let i = 5; i < 8; i++) {
+          sum += paymentOrder[i];
+        }
+        return sum;
+      }
+
+      function getDataPaymentSecondQuarter(payment) {
+        let sum = 0;
+        for (let i = 3; i < 6; i++) {
+          sum += paymentOrder[i];
+        }
+        return sum;
+      }
+
+      function getDataPaymentDoubleNum(payment) {
+        let sum = 0;
+        for (i = 0; i < paymentOrder.length; i++) {
+          if ([i] % 2) sum += paymentOrder[i];
+        }
+        return sum;
+      }
+
+      function getDataPaymentInitialYear(payment) {
+        sum = 0;
+        for (i = 2; i < paymentOrder.length; i += 3) {
+          sum += paymentOrder[i];
+        }
+        return sum;
+      }
+
+      const show = getDataPaymentInitialYear(paymentOrder);
+      document.write(show.toFixed(2));
+    </script>
+  </body>
+</html>

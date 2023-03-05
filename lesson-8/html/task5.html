@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const grades = [4, 5, 2, 3, 5, 2, 4, 3, 2];
+      function countBadGrade(grades) {
+        let count = 0;
+        for (let i = 0; i < grades.length; i++) {
+          if (grades[i] === 2) count++;
+        }
+        return count;
+      }
+
+      function countGoodGrades(grades) {
+        let count4 = 0;
+        let count5 = 0;
+
+        for (let i = 0; i < grades.length; i++) {
+          if (grades[i] === 4) count4++;
+        }
+        for (let i = 0; i < grades.length; i++) {
+          if (grades[i] === 5) count5++;
+        }
+        return count4 + count5;
+      }
+
+      function countAverageGrades(grades) {
+        count = 0;
+        for (let i = 0; i < grades.length; i++) {
+          if (grades[i] === 3) count++;
+        }
+        return count;
+      }
+
+      const badGrades = countBadGrade(grades);
+      const goodGrades = countGoodGrades(grades);
+      const averegeGrades = countAverageGrades(grades);
+
+      document.write(`<ol>
+            <li>двійок - ${badGrades}</li>
+            <li>кількість хороших оцінок (добре, відмінно) - ${goodGrades}</li>
+            <li>кількість оцінок, які нижче середнього - ${averegeGrades}</li>
+        </ol>
+        `);
+    </script>
+  </body>
+</html>

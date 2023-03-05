@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const numbersCar = ["HA6743AK", "CA5643FG", "AB3573AK", "AC8932OA", "DC4391AL", "AI8932AA", "AC5678AA"];
+      function countNumbersCarA(numbersCar) {
+        let count = 0;
+        for (let i = 0; i < numbersCar.length; i++) {
+          if (numbersCar[i][0] === "A") count++;
+        }
+        return count;
+      }
+
+      function countNumbersCarMore5(numbersCar) {
+        let count = 0;
+        for (let i = 0; i < numbersCar.length; i++) {
+          if (numbersCar.length > 5) count++;
+        }
+        return count;
+      }
+
+      function compareLetter(numbersCar) {
+        let count = 0;
+        for (i = 0; i < numbersCar.length; i++) {
+          if (numbersCar[i][0] === numbersCar[i][numbersCar[i].length - 1]) count++;
+        }
+        return count;
+      }
+
+      const numbersA = countNumbersCarA(numbersCar);
+      const more5 = countNumbersCarMore5(numbersCar);
+      const firstLastLetter = compareLetter(numbersCar);
+
+      document.write(`<ul>
+            <li>${numbersA} номера починаються на букву «А»</li>
+            <li>перша і остання літери співпадають у ${firstLastLetter} номерів</li>
+            <li>складаються з більше ніш 5 символів ${more5} номерів </li>
+        </ul>
+        `);
+    </script>
+  </body>
+</html>
