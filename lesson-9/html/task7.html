@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task7</title>
+  </head>
+  <body>
+    <script>
+      let arrPriceNotDiscount = [1340, 960, 2500, 1900, 900, 400, 3000];
+      const maxPricie = 1000;
+      const discount = 0.3;
+
+      function getDiscountArr(arrPrice, maxPricie, discount) {
+        arrPrice.forEach((number, index) => {
+          if (number > maxPricie) arrPrice[index] -= number * discount;
+        });
+        return arrPrice;
+      }
+      document.write(getDiscountArr(arrPriceNotDiscount, maxPricie, discount));
+    </script>
+  </body>
+</html>

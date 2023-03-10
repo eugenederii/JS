@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task8</title>
+  </head>
+  <body>
+    <script>
+      const numbersCar = ["HA6743AK", "CA5643FG", "AB3573AK", "AC8932OA", "DC4391AL", "AI8932AA", "AC5678AA"];
+
+      function getArrNumbersCarFirstA(arrNumbers) {
+        return arrNumbers.filter((element, index) => element[0] === "A");
+      }
+
+      document.write(getArrNumbersCarFirstA(numbersCar));
+    </script>
+  </body>
+</html>

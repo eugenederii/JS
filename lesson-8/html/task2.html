@@ -20,7 +20,6 @@
         return numsDaysLess20;
       }
 
-      // Варіант 1 знаходження найменшого дня,  коли кількість відвідувачів була мінімальною;
       function getLessNumDay(quantityClients) {
         let lessDayIndex = 0;
         for (let i = 0; i < quantityClients.length; i++) {
@@ -31,43 +30,15 @@
         return lessDayIndex + 1;
       }
 
-      // Варіант #2 знаходження найменого дня,  коли кількість відвідувачів була мінімальною;
-      // function getLessNumDay(quantityClients) {
-      //   let lessDay;
-      //   lessDay = 1;
-      //   if (quantityClients[1] < quantityClients[lessDay]) lessDay = 2;
-      //   if (quantityClients[2] < quantityClients[lessDay]) lessDay = 3;
-      //   if (quantityClients[3] < quantityClients[lessDay]) lessDay = 4;
-      //   if (quantityClients[4] < quantityClients[lessDay]) lessDay = 5;
-      //   if (quantityClients[5] < quantityClients[lessDay]) lessDay = 6;
-      //   if (quantityClients[6] < quantityClients[lessDay]) lessDay = 7;
-      //   return lessDay;
-      // }
-
-      // Варіант 1  коли кількість відвідувачів була максимальною;
       function getMaxNumDay(quantityClients) {
-        let maxDay;
-        maxDay = 1;
-        if (quantityClients[1] > quantityClients[maxDay]) maxDay = 2;
-        if (quantityClients[2] > quantityClients[maxDay]) maxDay = 3;
-        if (quantityClients[3] > quantityClients[maxDay]) maxDay = 4;
-        if (quantityClients[4] > quantityClients[maxDay]) maxDay = 5;
-        if (quantityClients[5] > quantityClients[maxDay]) maxDay = 6;
-        if (quantityClients[6] > quantityClients[maxDay]) maxDay = 7;
-        return maxDay;
+        let maxDayIndex = 0;
+        for (let i = 0; i < quantityClients.length; i++) {
+          if (quantityClients[i] > quantityClients[maxDayIndex]) {
+            maxDayIndex = i;
+          }
+        }
+        return maxDayIndex + 1;
       }
-
-      // Варіант 2  коли кількість відвідувачів була максимальною;
-
-      // function getMaxNumDay(quantityClients) {
-      //   let maxDayIndex = 0;
-      //   for (let i = 0; i < quantityClients.length; i++) {
-      //     if (quantityClients[i] > quantityClients[maxDayIndex]) {
-      //       maxDayIndex = i;
-      //     }
-      //   }
-      //   return maxDayIndex + 1;
-      // }
 
       //3агальнa кількість клієнтів у робочі дні
       function getQuantityClientsJobDays(quantityClients) {

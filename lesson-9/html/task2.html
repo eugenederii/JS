@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+  </head>
+  <body>
+    <script>
+      const quantityElements = parseInt(prompt("Кількість елементів масиву"));
+
+      function getMidleNumber(num) {
+        return quantityElements / 2;
+      }
+
+      function getArrNumber(midleNumber, quantityElements) {
+        return new Array(quantityElements).fill(1, 0, midleNumber).fill(7, midleNumber);
+      }
+
+      document.write(`${getArrNumber(getMidleNumber(quantityElements), quantityElements)}`);
+    </script>
+  </body>
+</html>

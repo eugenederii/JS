@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task10</title>
+  </head>
+  <body>
+    <script>
+      const arrPrices = [1000, 800, 600, 8500, 3000, 1500];
+      const tax = 0.2;
+
+      const getArrToPay = (arr) => arr.map((element) => element * tax);
+
+      document.write(getArrToPay(arrPrices));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task6</title>
+  </head>
+  <body>
+    <script>
+      let mainArr = [3, 6, 1, 3, 4, 1, 5, 10];
+
+      function getArrX2(array) {
+        array.forEach((number, index) => {
+          if (number > array[0]) array[index] *= 2;
+        });
+        return mainArr;
+      }
+      document.write(getArrX2(mainArr));
+    </script>
+  </body>
+</html
