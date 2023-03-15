@@ -18,6 +18,7 @@
 
       //Масив з рандомними значеннями
       const mainArr = new Array(lengthArr).fill(0).map((el) => getRandomArr(min, max));
+      console.log(mainArr);
 
       //1)Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
       const arrMore1000 = mainArr.filter((el) => el > 1000);
