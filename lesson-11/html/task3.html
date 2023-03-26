@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Створюємо двовимірний масив поля та заповнюємо його нулями
+      const field = Array(6)
+        .fill()
+        .map(() => Array(6).fill(0));
+      // console.log(field);
+
+      // розташовуємо 5 кораблів випадково на полі
+      for (let i = 0; i < 5; i++) {
+        let x, y;
+        do {
+          x = Math.floor(Math.random() * 6);
+          y = Math.floor(Math.random() * 6);
+        } while (field[x][y] === 1); // перевіряємо, що ячейка не зайнята іншим кораблем
+        field[x][y] = 1;
+      }
+
+      let shots = 10; // к-сть вистрілів
+
+      // ігровий цикл
+      while (shots > 0) {
+        let x = prompt("Введіть координати пострілу X (від 0 до 5)");
+        let y = prompt("Введіть координати пострілу Y (від 0 до 5)");
+        console.log(field);
+        // перевіряємо, що введені координати знаходяться на полі
+        if (x < 0 || x > 5 || y < 0 || y > 5) {
+          alert("Ви ввели невірні координати!");
+          continue; //якщо ввели неправильні координати продовжуємо гру
+        }
+
+        // перевірка щооб не повторювались координати вистрілів
+        if (field[x][y] === "2" || field[x][y] === "3") {
+          alert("Ви вжее сюди стріляли");
+          continue; // переходим к следующей итерации цикла
+        }
+
+        // відмічаємо попадання або промах
+        if (field[x][y] === 1) {
+          alert("В ціль!");
+          field[x][y] = "2";
+        } else {
+          alert("Промах!");
+          field[x][y] = "3";
+        }
+
+        // Перевірка є кораблі чи ні
+        let hasShipsLeft = false;
+        for (let i = 0; i < 6; i++) {
+          for (let j = 0; j < 6; j++) {
+            if (field[i][j] === 1) {
+              hasShipsLeft = true;
+              break;
+            }
+          }
+          if (hasShipsLeft) {
+            break;
+          }
+        }
+
+        // якщо кораблів не залишилось
+        if (!hasShipsLeft) {
+          alert("Ви виграли!");
+          break;
+        }
+
+        // зменшуємо к-сть вистрілів
+        shots--;
+      }
+
+      // якщо вистріліва не залишилось
+      if (shots === 0) {
+        alert("Ви проиграли!");
+      }
+    </script>
+  </body>
+</html>

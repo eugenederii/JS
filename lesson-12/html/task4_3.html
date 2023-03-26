@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task4_3</title>
+  </head>
+  <body>
+    <script>
+      let testArr = [5, 3, 4, 2, 1];
+
+      function getSortNumIncluded(arr) {
+        let key, i;
+
+        for (let k = 1; k < arr.length; k++) {
+          key = arr[k];
+          i = k - 1;
+          while (i >= 0 && arr[i] > key) {
+            arr[i + 1] = arr[i];
+            i = i - 1;
+          }
+          arr[i + 1] = key;
+          printArr(testArr);
+        }
+      }
+
+      function printArr(arr) {
+        document.write("<table style='border-collapse: collapse;'>");
+        document.write("<tr>");
+        for (let i = 0; i < arr.length; i++) {
+          document.write(`<td style='border: 1px solid black; padding: 5px;'>${arr[i]}</td>`);
+        }
+        document.write("</tr></table>");
+      }
+
+      getSortNumIncluded(testArr);
+      console.log(testArr);
+    </script>
+  </body>
+</html>

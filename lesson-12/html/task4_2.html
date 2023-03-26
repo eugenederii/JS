@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task4_2</title>
+  </head>
+  <body>
+    <script>
+      let testArr = [5, 3, 4, 2, 1];
+
+      function getSortNumMixing(arr) {
+        let leftIndex = 0;
+        let rightIndex = arr.length - 1;
+        printArr(testArr);
+
+        while (leftIndex < rightIndex) {
+          for (let i = leftIndex; i < rightIndex; i++) {
+            if (arr[i] > arr[i + 1]) {
+              let temp = arr[i + 1];
+              arr[i + 1] = arr[i];
+              arr[i] = temp;
+            }
+          }
+          rightIndex--;
+          printArr(testArr);
+
+          for (let i = rightIndex; i > leftIndex; i--) {
+            let temp = arr[i - 1];
+            arr[i - 1] = arr[i];
+            arr[i] = temp;
+          }
+          leftIndex++;
+          printArr(testArr);
+        }
+      }
+
+      function printArr(arr) {
+        document.write("<table style='border-collapse: collapse;'>");
+        document.write("<tr>");
+        for (let i = 0; i < arr.length; i++) {
+          document.write(`<td style='border: 1px solid black; padding: 5px;'>${arr[i]}</td>`);
+        }
+        document.write("</tr></table>");
+      }
+
+      getSortNumMixing(testArr);
+    </script>
+  </body>
+</html>

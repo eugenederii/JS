@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const min = 1;
+      const max = 100;
+      const length = 30;
+
+      function getRandomNum(minV, MaxV) {
+        return minV + Math.floor(Math.random() * (MaxV - minV + 1));
+      }
+
+      function getRandomArr(lengthArr, minV, MaxV) {
+        const arr = [];
+
+        for (let i = 0; i < lengthArr; i++) {
+          const ranNum = getRandomNum(minV, MaxV);
+          arr.push(ranNum);
+        }
+        return arr;
+      }
+
+      const mainArr = getRandomArr(length, min, max);
+      console.log(mainArr);
+
+      function getSortNumIncluded(arr) {
+        let key, i;
+        count = 0;
+
+        for (let k = 1; k < arr.length; k++) {
+          key = arr[k];
+          i = k - 1;
+          while (i >= 0 && arr[i] > key) {
+            arr[i + 1] = arr[i];
+            i = i - 1;
+            count++;
+          }
+          arr[i + 1] = key;
+        }
+        return count;
+      }
+
+      const showResult = getSortNumIncluded(mainArr);
+      console.log(showResult);
+    </script>
+  </body>
+</html>

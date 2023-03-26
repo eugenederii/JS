@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task6</title>
+  </head>
+  <body>
+    <script>
+      const names = ["Anna", "Elen", "Elena", "Elenaa", "Ivan", "Olga", "Natalia", "Alexey", "Yana"];
+      const lengthName = 5;
+
+      function getSortNumIncluded(arr) {
+        let key, i;
+
+        for (let k = 1; k < arr.length; k++) {
+          key = arr[k];
+          i = k - 1;
+          while (i >= 0 && arr[i] > key) {
+            arr[i + 1] = arr[i];
+            i = i - 1;
+          }
+          arr[i + 1] = key;
+        }
+      }
+
+      getSortNumIncluded(names);
+
+      function getNamesIndexMore5(arr, lengthName) {
+        let start = 0;
+        let end = arr.length - 1;
+        while (start <= end) {
+          const middle = Math.floor((start + end) / 2);
+          if (arr[middle].length === lengthName) {
+            return middle;
+          } else if (arr[middle].length < lengthName) {
+            start = middle + 1;
+          } else if (arr[middle].length > lengthName) {
+            end = middle - 1;
+          }
+        }
+        return -1;
+      }
+
+      const index = getNamesIndexMore5(names, lengthName);
+
+      if (index === -1) {
+        console.log(`В даному масиві імен довжиною ${lengthName} символів немає`);
+      } else {
+        console.log(`В даному масиві ім'я довжиною ${lengthName} символів знаходиться за індексом ${index} `);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+  </head>
+  <body>
+    <script>
+      const min = 1;
+      const max = 100;
+      const length = 30;
+
+      function getRandomNum(minV, MaxV) {
+        return minV + Math.floor(Math.random() * (MaxV - minV + 1));
+      }
+
+      function getRandomArr(lengthArr, minV, MaxV) {
+        const arr = [];
+
+        for (let i = 0; i < lengthArr; i++) {
+          const ranNum = getRandomNum(minV, MaxV);
+          arr.push(ranNum);
+        }
+        return arr;
+      }
+
+      const mainArr = getRandomArr(length, min, max);
+
+      function getSortNumMixing(arr) {
+        let leftIndex = 0;
+        let rightIndex = arr.length - 1;
+        let count = 0;
+
+        while (leftIndex < rightIndex) {
+          for (let i = leftIndex; i < rightIndex; i++) {
+            if (arr[i] > arr[i + 1]) {
+              let temp = arr[i + 1];
+              arr[i + 1] = arr[i];
+              arr[i] = temp;
+              count++;
+            }
+          }
+          rightIndex--;
+
+          for (let i = rightIndex; i > leftIndex; i--) {
+            let temp = arr[i - 1];
+            arr[i - 1] = arr[i];
+            arr[i] = temp;
+            count++;
+          }
+          leftIndex++;
+        }
+        return count;
+      }
+
+      const sortMixing = getSortNumMixing(mainArr);
+      console.log(sortMixing);
+    </script>
+  </body>
+</html>

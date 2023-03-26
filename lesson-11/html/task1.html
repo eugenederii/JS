@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task1</title>
+  </head>
+  <body>
+    <script>
+      //Тестовий масив
+      let arr = [
+        [15, 25],
+        [20, 30],
+      ];
+
+      //1
+      let sum1 = 0;
+      for (let rowIndex = 0; rowIndex < 1; rowIndex++) {
+        for (let columnIndex = 0; columnIndex < 1; columnIndex++) {
+          sum1 += arr[rowIndex][columnIndex];
+        }
+      }
+
+      //2
+      let sum2 = 0;
+      for (let rowIndex = 0; rowIndex < 1; rowIndex++) {
+        for (let columnIndex = 1; columnIndex < 2; columnIndex++) {
+          sum2 += arr[rowIndex][columnIndex];
+        }
+      }
+
+      //3
+      let sum3 = 0;
+      for (let rowIndex = 1; rowIndex < 2; rowIndex++) {
+        for (let columnIndex = 0; columnIndex < 1; columnIndex++) {
+          sum3 += arr[rowIndex][columnIndex];
+        }
+      }
+
+      //4
+      let sum4 = 0;
+      for (let rowIndex = 1; rowIndex < 2; rowIndex++) {
+        for (let columnIndex = 1; columnIndex < 2; columnIndex++) {
+          sum4 += arr[rowIndex][columnIndex];
+        }
+      }
+
+      //5 Суму парних рядків
+      let sum5 = 0;
+      for (let rowIndex = 0; rowIndex < arr.length; rowIndex += 2) {
+        for (let columnIndex = 0; columnIndex < arr[rowIndex].length; columnIndex++) {
+          sum5 += arr[rowIndex][columnIndex];
+        }
+      }
+
+      //6 Суму непарних стовпців
+      let sum6 = 0;
+      for (let rowIndex = 0; rowIndex < arr.length; rowIndex++) {
+        for (let columnIndex = 1; columnIndex < arr[rowIndex].length; columnIndex += 2) {
+          sum6 += arr[rowIndex][columnIndex];
+        }
+      }
+
+      //7 У парних рядках – непарні стовпці
+      let sum7 = 0;
+      for (let rowIndex = 0; rowIndex < arr.length; rowIndex += 2) {
+        for (let columnIndex = 1; columnIndex < arr[rowIndex].length; columnIndex += 2) {
+          sum7 += arr[rowIndex][columnIndex];
+        }
+      }
+
+      //8 У непарних рядках – парні стовпці
+      let sum8 = 0;
+      for (let rowIndex = 1; rowIndex < arr.length; rowIndex += 2) {
+        for (let columnIndex = 0; columnIndex < arr[rowIndex].length; columnIndex += 2) {
+          sum8 += arr[rowIndex][columnIndex];
+        }
+      }
+    </script>
+  </body>
+</html>

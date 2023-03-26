@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+  </head>
+  <body>
+    <script>
+      const min = 100;
+      const max = 500;
+      const quntityShop = parseInt(prompt("Скільки магазинів прорахувати?"));
+
+      function getRandomNumber(minValue, maxValue) {
+        return minValue + Math.floor(Math.random() * (maxValue - minValue + 1));
+      }
+
+      function getRandomArray(arrayLength, minValue, maxValue) {
+        let arr = [];
+        for (i = 0; i < arrayLength; i++) {
+          const rundArrNum = getRandomNumber(min, max);
+          arr.push(rundArrNum);
+        }
+        return arr;
+      }
+
+      function generateRandomTable(rowsNumber, columnNumber, minValue, maxValue) {
+        const table = [];
+        for (let i = 0; i < rowsNumber; i++) {
+          const randomRow = getRandomArray(columnNumber, min, max);
+          table.push(randomRow);
+        }
+        return table;
+      }
+
+      const tableArr = generateRandomTable(quntityShop, 7, min, max);
+      console.log(tableArr);
+
+      //1) загальний прибуток кожного масиву за тиждень;
+      const weeksProfit = tableArr.map((shop) => shop.reduce((result, value) => result + value));
+      // console.log(weeksProfit);
+
+      // const weeksProfit = [];
+
+      // for (let i = 0; i < tableArr.length; i++) {
+      //   let totalProfit = 0;
+      //   for (let k = 0; k < tableArr[i].length; k++) {
+      //     totalProfit += tableArr[i][k];
+      //   }
+      //   weeksProfit.push(totalProfit);
+      // }
+      // console.log(weeksProfit);
+      //
+      //
+
+      //2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);
+
+      function getProfitByDays(arr) {
+        const weeksProfitByDays = [];
+
+        for (let i = 0; i < tableArr[0].length; i++) {
+          let totalProfit = 0;
+          for (let k = 0; k < tableArr.length; k++) {
+            totalProfit += tableArr[k][i];
+          }
+          weeksProfitByDays.push(totalProfit);
+        }
+        return weeksProfitByDays;
+      }
+
+      const profitByDays = getProfitByDays(tableArr);
+
+      //3   Загальний прибуток за робочі дні
+
+      function getProfitByWorkDays(arr) {
+        let totalProfit = 0;
+        for (let i = 0; i < tableArr.length; i++) {
+          for (let k = 0; k < tableArr[i].length; k++) {
+            if (k < 5) {
+              totalProfit += tableArr[i][k];
+            }
+          }
+        }
+        return totalProfit;
+      }
+
+      const worksDays = getProfitByWorkDays(tableArr);
+
+      //4  Загальний прибуток за вихідні дні
+
+      function getProfitByWeekendsDay(arr) {
+        let totalProfit = 0;
+        for (let i = 0; i < tableArr.length; i++) {
+          for (let k = 0; k < tableArr[i].length; k++) {
+            if (k >= 5) {
+              totalProfit += tableArr[i][k];
+            }
+          }
+        }
+        return totalProfit;
+      }
+
+      const weekendsDay = getProfitByWeekendsDay(tableArr);
+
+      //5 Максимальний прибуток за середу
+      function getMaxProfitWensday(arr) {
+        const wednesdayProfit = tableArr.map((el) => el[2]);
+        const maxWednesdayProfit = Math.max(...wednesdayProfit);
+        return maxWednesdayProfit;
+      }
+
+      //6 Cформувати загальний список (одновимірний масив) зі значенням, які що більші за 200
+
+      const profitMore200 = tableArr.flat().filter((el) => el > 200);
+
+      //7 Відсортувати кожен тиждень за зростанням
+
+      function getSortedProfit(arr) {
+        for (let i = 0; i < tableArr.length; i++) {
+          tableArr[i].sort((a, b) => a - b);
+        }
+        return arr;
+      }
+
+      // const sortedProfit = getSortedProfit(tableArr);
+
+      //8  відсортувати тижні (рядки) за спаданням максимального елементи у цьому тижні (рядку), тобто при порівнянні рядків потрібно порівнювати максимальні елементи у кожному з цих рядків{
+      const sortedByMax = tableArr.sort((a, b) => {
+        const MaxA = Math.max(...a);
+        const MaxB = Math.max(...b);
+        return MaxB - MaxA;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task1</title>
+  </head>
+  <body>
+    <script>
+      const min = 1;
+      const max = 100;
+      const length = 30;
+
+      function getRandomNum(minV, MaxV) {
+        return minV + Math.floor(Math.random() * (MaxV - minV + 1));
+      }
+
+      function getRandomArr(lengthArr, minV, MaxV) {
+        const arr = [];
+
+        for (let i = 0; i < lengthArr; i++) {
+          const ranNum = getRandomNum(minV, MaxV);
+          arr.push(ranNum);
+        }
+        return arr;
+      }
+
+      function getSortBulbachka(arr) {
+        let changed;
+        let counter = 0;
+        do {
+          changed = false;
+          for (let i = 0; i < arr.length; i++) {
+            if (arr[i - 1] > arr[i]) {
+              let temp = arr[i - 1];
+              arr[i - 1] = arr[i];
+              arr[i] = temp;
+              counter++;
+              changed = true;
+            }
+          }
+        } while (changed);
+        return counter;
+      }
+
+      const mainArr = getRandomArr(length, min, max);
+      const showCounrter = getSortBulbachka(mainArr);
+      console.log(showCounrter);
+    </script>
+  </body>
+</html>

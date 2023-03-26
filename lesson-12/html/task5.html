@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task5</title>
+  </head>
+  <body>
+    <script>
+      const names = ["Anna", "Dmitry", "Elena", "Sergey", "Ivan", "Olga", "Natalia", "Alexey", "Yana"];
+      const searchName = "Olga";
+      names.sort();
+
+      function getIndexName(arr, searchElement) {
+        let start = 0;
+        let end = arr.length - 1;
+
+        while (start <= end) {
+          const middle = Math.floor((start + end) / 2);
+          if (arr[middle] === searchElement) {
+            return middle;
+          } else if (arr[middle] < searchElement) {
+            start = middle + 1;
+          } else if (arr[middle] > searchElement) {
+            end = middle - 1;
+          }
+        }
+        return -1;
+      }
+
+      const index = getIndexName(names, searchName);
+
+      if (index === -1) {
+        console.log(`Ім'я "${searchName}  не знайдено в масиві`);
+      } else {
+        console.log(`Ім'я "${searchName} знайдено в масиві за індексом ${index}`);
+      }
+    </script>
+  </body>
+</html>
