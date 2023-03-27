@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task5</title>
+  </head>
+  <body>
+    <script>
+      function getRandonNumber() {
+        return 1 + Math.floor(Math.random() * 100);
+      }
+
+      function game() {
+        let count = 0;
+
+        let generalSum = setInterval(() => {
+          const num1 = getRandonNumber();
+          const num2 = getRandonNumber();
+          const answer = parseInt(prompt(`Скільки буде ${num1} + ${num2} ?`));
+          if (answer === null) {
+            clearInterval(generalSum);
+            alert(`Гра закінчена, ваш результат ${count}`);
+          } else if (answer === num1 + num2) {
+            alert("Правильно");
+            count++;
+          } else {
+            alert(`Не правильно, правильна відповідь ${num1 + num2}`);
+          }
+        }, 10000);
+      }
+
+      game();
+    </script>
+  </body>
+</html>

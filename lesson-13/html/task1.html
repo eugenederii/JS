@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task1</title>
+  </head>
+  <body>
+    <script>
+      function nonRecursive(n) {
+        if (n === 0) {
+          return 1;
+        } else {
+          let result = [1];
+          let x = 1;
+          for (let i = 1; i < n; i++) {
+            x = x + 2 * i;
+            result.push(x);
+          }
+          return result;
+        }
+      }
+
+      function recursive(n) {
+        if (n === 0) {
+          return 1;
+        } else {
+          let x = [1];
+          for (let i = 1; i <= n; i++) {
+            x[i] = x[i - 1] + 2 * i;
+          }
+          return x.slice(0, n + 1);
+        }
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getWord(word) {
+        let currentLetter = 0;
+        function next() {
+          let letter = "";
+          if (currentLetter < word.length) {
+            letter = word[currentLetter];
+            currentLetter++;
+          }
+          return letter;
+        }
+        return next;
+      }
+
+      let hiddenWord = "keyboard";
+      const iterator = getWord(hiddenWord);
+
+      function game(letter) {
+        let counter = 0;
+        let attempt = hiddenWord.length;
+        do {
+          const attemptUser = prompt("We write code on this thing, guess the word one letter at a time");
+          let letter = iterator();
+
+          if (letter === attemptUser) {
+            alert("Ви вгадали букву");
+            counter++;
+          } else {
+            alert("Ви не вгадали букву");
+            attempt--;
+          }
+          if (counter === hiddenWord.length) {
+            alert("Ви вгадали слово");
+            break;
+          }
+          if (attempt === 0) {
+            alert("Ви не вгадали слово");
+            break;
+          }
+        } while (true);
+        return counter;
+      }
+
+      const quantityGuessedWord = game();
+
+      if (quantityGuessedWord === hiddenWord.length) {
+        document.write(`Ви вгадали слово`);
+      } else {
+        document.write(`You guessed ${quantityGuessedWord} letter`);
+      }
+    </script>
+  </body>
+</html>

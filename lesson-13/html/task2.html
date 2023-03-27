@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+  </head>
+  <body>
+    <script>
+      function getRecursive(n) {
+        if (n === 0 || n === 1) {
+          return 1;
+        } else {
+          return getRecursive(n - 1) + 2 * getRecursive(n - 2);
+        }
+      }
+      console.log(getRecursive(6));
+
+      function getNonRecursive(n) {
+        let x = [1, 1];
+        for (let i = 2; i <= n; i++) {
+          x[i] = x[i - 1] + 2 * x[i - 2];
+        }
+        return x[n];
+      }
+      console.log(getNonRecursive(6));
+    </script>
+  </body>
+</html>
