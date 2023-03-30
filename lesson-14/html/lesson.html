@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let product = {
+      //     title: "table",
+      //     factory: {
+      //       title: "Sun",
+      //       address: {
+      //         zipCode: "12",
+      //         city: "Kyiv",
+      //         street: "Lalal",
+      //         num: 1112,
+      //       },
+      //     },
+      //     expiredDate: {
+      //       year: 2023,
+      //       month: 12,
+      //       day: 3,
+      //     },
+      //     price: 293,
+      //   };
+
+      // Задача. Дано список книг (назва, автор, рік видання, вартість, кількість одиниць).
+      let booksList = [
+        {
+          title: "Title 1",
+          author: "Author 0",
+          year: 2000,
+          price: 2000,
+          count: 100,
+        },
+        {
+          title: "Title 2",
+          author: "Author 2",
+          year: 2003,
+          price: 2300,
+          count: 150,
+        },
+        {
+          title: "Title 3",
+          author: "Author 3",
+          year: 2010,
+          price: 3500,
+          count: 50,
+        },
+      ];
+
+      // кількість книг, що було видано після 2000 року
+      //   let numAfter2000 = booksList.reduce((prevNum, book) => (book.year > 2000 ? prevNum + book.count : prevNum), 0);
+      //   alert(numAfter2000);
+
+      // знайти загальну вартість кожної із книг
+      //   const booksTotalPrices = booksList.map((book) => book.price * book.count);
+      //   document.write(booksTotalPrices);
+      // знайти загальну вартість кожної із книг (назва - заг ціна)
+      //   const booksTotalPrices = booksList.map((book) => `${book.title} - ${book.price * book.count}`);
+      //   document.write(booksTotalPrices);
+      // знайти загальну вартість із книг (назва і загальна ціна як обєкт)
+      //   const booksTotalPrices = booksList.map((book) => ({
+      //     title: book.title,
+      //     totalPrice: book.price * book.count,
+      //   }));
+      //   console.log(booksTotalPrices);
+
+      // знайти загальну вартість усіх книг
+      //   const allPriceBooks = booksList.reduce((prevSum, book) => prevSum + book.price * book.count, 0);
+      //   console.log(allPriceBooks);
+
+      // визначити, чи є книга, що була видана у 2000 році
+      //   if (booksList.some((book) => book.year === 2000)) {
+      //     alert("Da");
+      //   } else alert("No");
+
+      // визначити, чи усі книги були визаді після 2005 року
+      //   if (booksList.every((book) => book.year > 2005)) {
+      //     alert("da");
+      //   } else alert("No");
+
+      // сформувати список книг, ціна яких менше за 1000 грн
+      //   const priceLover1000 = booksList.filter((book) => book.price < 1000);
+      //   console.log(priceLover1000);
+
+      //   // знайти загальну вартість книг, які було видано у 2000 році
+      //   const totalPrice = booksList.reduce((prevSum, book) => (book.year === 2000 ? prevSum + book.price * book.count : prevSum), 0);
+      //   console.log(totalPrice);
+      // знайти першу книгу, вартість якої більше за 3000грн
+
+      //   const serchBook = booksList.find((book) => book.price > 3000);
+      //   console.log(serchBook);
+      // знайти номер першої книги, вартість якої більше за 3000грн
+      //   const serchBook = booksList.findIndex((book) => book.price > 3000);
+      //   console.log(serchBook);
+
+      // Задача. Дано масив імен. Підхраувати кількість входжень кожного імені за зразком
+      //    namesNumberObject =   {
+      //        ‘Ivan’ : 12,
+      //        ‘Olga’ : 12,
+      //        ‘Petro’ : 12,
+      //        ‘John’ : 12,
+      //      }
+
+      //   const usersNames = ["Ivan", "Petro", "Olga", "Ivan", "Olga", "Petro", "Olga", "Olga", "Ivan", "Ivan", "Petro", "Ivan"];
+
+      //   const namesNumObject = {};
+
+      //   for (const userName of usersNames) {
+      //     if (userName in namesNumObject)
+      //       // чи є назва властивості у обєекті
+      //       namesNumObject[userName]++;
+      //     else namesNumObject[userName] = 1;
+      //   }
+
+      //   for (const key in namesNumObject) {
+      //     document.write(`${key} : ${namesNumObject[key]}<br>`);
+      //   }
+
+      //   let model = "Ava";
+      //   let car = "Merc";
+      //   let age = 20;
+
+      //   let auto = {
+      //     model,
+      //     car,
+      //     age,
+      //   };
+
+      //   console.log(auto);
+
+      // Задача. Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде місяць через N місяців.
+
+      // let userDate = {
+      //   day: 23,
+      //   month: 5,
+      //   year: 2023,
+      // };
+
+      // function getMonth(userDate, N) {
+      //   return ((userDate.month - 1 + N) % 12) + 1;
+      // }
+      // function getMonth({ month }, N) {
+      //   return ((userDate.month - 1 + N) % 12) + 1;
+      // }
+
+      // const N = parseInt(prompt("n"));
+      // const shefiedMonth = getMonth(userDate, N);
+      // alert(`Через ${N} місяців буде місяць номер ${shefiedMonth}`);
+
+      // let c = 9 % 12;
+      // console.log(c);
+    </script>
+  </body>
+</html>

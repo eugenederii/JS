@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task1</title>
+  </head>
+  <body>
+    <script>
+      let company = [
+        {
+          name: "Wog",
+          owner: "Petro",
+          sponsor: [
+            {
+              lastName: "Petrovich",
+              firstName: "Mark",
+              investSum: 250000,
+            },
+            {
+              lastName: "Shevchenko",
+              firstName: "Kolya",
+              investSum: 150000,
+            },
+            {
+              lastName: "Sereda",
+              firstName: "Dmitrii",
+              investSum: 1000,
+            },
+          ],
+          yearReleased: 2005,
+          webSitePrice: 7000,
+        },
+        {
+          name: "Incpect",
+          owner: "Jane",
+          sponsor: [
+            {
+              lastName: "Arahami",
+              firstName: "David",
+              investSum: 35000,
+            },
+            {
+              lastName: "Klichko",
+              firstName: "Vitalii",
+              investSum: 10000,
+            },
+            {
+              lastName: "Zelensckii",
+              firstName: "Vova",
+              investSum: 12000,
+            },
+          ],
+          yearReleased: 2019,
+          webSitePrice: 15000,
+        },
+        {
+          name: "Bayraktar",
+          owner: "BigBoom",
+          sponsor: [
+            {
+              lastName: "Anaka",
+              firstName: "Artem",
+              investSum: 50000,
+            },
+            {
+              lastName: "Vadimovich",
+              firstName: "Vadim",
+              investSum: 500,
+            },
+            {
+              lastName: "Oper",
+              firstName: "Danil",
+              investSum: 1500000,
+            },
+          ],
+          yearReleased: 2008,
+          webSitePrice: 4000,
+        },
+      ];
+
+      // 1) загальну вартість усіх сайтів
+
+      const allPriceSite = company.reduce((prevSum, site) => prevSum + site.webSitePrice, 0);
+      // console.log(allPriceSite);
+
+      // 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+
+      const numSites = company.filter((site) => site.yearReleased > 2000 && site.yearReleased < 2009).length;
+      // console.log(numSites);
+
+      // 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+
+      const investMore100000 = company.filter((site) => site.sponsor.some((sponsor) => sponsor.investSum > 100000)).length;
+      // console.log(investMore100000);
+
+      // 4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+
+      const allNameSponsors = company.map((site) => site.sponsor).flat();
+      // console.log(allNameSponsors);
+
+      // 5) знайти рік, коли прибуток був найбільшим
+
+      // Спочатку відсортувати в масив окремі обьекти з роком та загальною суммою інвестицій та імя
+      const maxInvest = company.map((site) => ({
+        name: site.name,
+        investSum: site.sponsor.reduce((prevSum, sponsor) => prevSum + sponsor.investSum, 0),
+        yearReleased: site.yearReleased,
+      }));
+
+      // console.log(maxInvest);
+      // Сортуємо за спаданням
+      maxInvest.sort((a, b) => {
+        if (a.investSum > b.investSum) {
+          return -1;
+        }
+        if (a.investSum < b.investSum) {
+          return 1;
+        }
+        return 0;
+      });
+      // Беремо першу (максимальну) інвестицію
+      const maxSumYear = maxInvest[0].yearReleased;
+
+      // console.log(maxSumYear);
+
+      // 6) упорядкувати список за спаданням прибутку
+
+      // Отримаємо список усіх інвестицій
+      const allInvest = company.reduce((acc, site) => {
+        const siteInvest = site.sponsor.map((sponsor) => sponsor.investSum);
+        return [...acc, ...siteInvest];
+      }, []);
+
+      allInvest.sort((a, b) => {
+        if (a > b) {
+          return -1;
+        }
+        if (a < b) {
+          return 1;
+        }
+        return 0;
+      });
+      // console.log(allInvest);
+
+      // 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+
+      const firstSortList = company.filter((site) => site.webSitePrice < 10000);
+      const secondSortList = company.filter((site) => site.webSitePrice > 10000);
+
+      const listLess10000 = JSON.parse(JSON.stringify(firstSortList));
+      const listMore10000 = JSON.parse(JSON.stringify(secondSortList));
+
+      // console.log(listLess10000);
+      // console.log(listMore10000);
+    </script>
+  </body>
+</html>

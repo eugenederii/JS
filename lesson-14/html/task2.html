@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2</title>
+  </head>
+  <body>
+    <script>
+      // Розробити функцію, у яку передають об’єкт (день, місяць, рік). Визначити, який буде рік через N місяців.
+
+      function getFutureYear({ year, month, da }, N) {
+        const totalMonths = year * 12 + month - 1;
+        const futureMonths = totalMonths + N;
+        const futureYear = Math.floor(futureMonths / 12);
+        return futureYear;
+      }
+
+      const userDate = {
+        day: 23,
+        month: 3,
+        year: 2023,
+      };
+
+      const N = parseInt(prompt("Введите количество месяцев: "));
+      const futureYear = getFutureYear(userDate, N);
+
+      console.log(`Через ${N} месяцев будет год ${futureYear}`);
+    </script>
+  </body>
+</html>

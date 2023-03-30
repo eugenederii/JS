@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const informations = [
+        {
+          dataType: "string",
+          isColumn: false,
+          key: "job_name",
+          type: "tag",
+        },
+        {
+          dataType: "string",
+          isColumn: false,
+          key: "job_age",
+          type: "tag",
+        },
+        {
+          dataType: "string",
+          isColumn: false,
+          key: "signoz_calls",
+          type: "tag",
+        },
+      ];
+
+      const emptyResponseToUser = {
+        dataType: null,
+        isColumn: null,
+        key: answer,
+        type: null,
+      };
+
+      const userAnswer = ["asasdasd", "teest", "fire", "signoz_calls"];
+
+      const newArr = userAnswer.map((answer) => {
+        const information = informations.find((information) => information.key === answer);
+
+        return information ? information : emptyResponseToUser;
+      });
+
+      console.log(newArr);
+    </script>
+  </body>
+</html>
