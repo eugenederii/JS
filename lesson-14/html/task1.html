@@ -87,13 +87,23 @@
 
       // 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
 
-      const numSites = company.filter((site) => site.yearReleased > 2000 && site.yearReleased < 2009).length;
+      // const numSites = company.reduce((prevSum, site) => {
+      //   if (site.yearReleased > 2000 && site.yearReleased < 2009) {
+      //     return prevSum + 1;
+      //   }
+      //   return prevSum;
+      // }, 0);
       // console.log(numSites);
 
       // 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
 
-      const investMore100000 = company.filter((site) => site.sponsor.some((sponsor) => sponsor.investSum > 100000)).length;
-      // console.log(investMore100000);
+      const investMore100000 = company.reduce((prevSum, site) => {
+        if (site.sponsor.some((sponsor) => sponsor.investSum > 100000)) {
+          return prevSum + 1;
+        }
+        return prevSum;
+      }, 0);
+      console.log(investMore100000);
 
       // 4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
 
