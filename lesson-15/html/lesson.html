@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   let product = {
+      //     title: "table",
+      //     price: 1000,
+      //     count: 30,
+      //     paymentPerDay: 25,
+      //     delivery: {
+      //       auto: "Audi",
+      //       preKilometr: 100,
+      //     },
+
+      //     getTotalPrice: function () {
+      //       return this.price * this.count;
+      //     },
+      //     getPaymentForDays: function (daysNumber) {
+      //       return daysNumber * this.paymentPerDay;
+      //     },
+      //     reducePrice: function (procentVaalue) {
+      //       this.price = this.price - (this.price * procentVaalue) / 100;
+      //     },
+      //     increacePrice: function (procentVaalue) {
+      //       this.price = this.price + (this.price * procentVaalue) / 100;
+      //     },
+
+      //     getDeliveyPrice: function (kilometrsCount) {
+      //       return this.delivery.preKilometr * kilometrsCount;
+      //     },
+      //     toString: function () {
+      //       return `${this.title} - ${this.price} - ${this.count}`;
+      //     },
+      //   };
+
+      //   document.write(product);
+
+      //   document.write(`Total = ${product.getTotalPrice()} <br>`);
+      //   document.write(`Per daays ${product.getPaymentForDays(10)}<br>`);
+      //   product.increacePrice(10);
+      //   document.write(`New price = ${product.price}`);
+
+      //   let invoices = [
+      //     {
+      //       invoiceNumber: 233,
+      //       complitedTasks: ["Creaated tests", "updated", "login form design", "added button"],
+      //       money: 2000,
+      //       toString: function () {
+      //         return `${this.invoiceNumber}, ${this.complitedTasks.length}, ${this.money}`;
+      //       },
+      //       valueOf: function () {
+      //         return this.money;
+      //       },
+      //     },
+      //     {
+      //       invoiceNumber: 33,
+      //       complitedTasks: ["Creaated tests", "updated", "login form design", "added button"],
+      //       money: 3000,
+      //       toString: function () {
+      //         return `${this.invoiceNumber}, ${this.complitedTasks.length}, ${this.money}`;
+      //       },
+      //       valueOf: function () {
+      //         return this.money;
+      //       },
+      //     },
+      //     {
+      //       invoiceNumber: 123,
+      //       complitedTasks: ["Creaated tests", "updated", "login form design", "added button"],
+      //       money: 5000,
+      //       toString: function () {
+      //         return `${this.invoiceNumber}, ${this.complitedTasks.length}, ${this.money}`;
+      //       },
+      //       valueOf: function () {
+      //         return this.money;
+      //       },
+      //     },
+      //     s,
+      //   ];
+
+      //   document.write("<ol>");
+      //   for (const invoice of invoices) {
+      //     document.write(`<li>${invoice}</li>`);
+      //   }
+      //   document.write("</ol>");
+
+      //   let s = invoices.reduce((prevSum, invoice) => prevSum + invoice, 0);
+      //   document.write(`total money = ${s}`);
+
+      //   function TestConsstructor(val) {
+      //     this.value = val;
+      //   }
+      //   TestConsstructor.prototype.value2 = 70;
+
+      //   let t1 = new TestConsstructor(11);
+      //   let t2 = new TestConsstructor(21);
+
+      //   console.log("t1");
+      //   console.log(t1);
+      //   console.log("t2");
+      //   console.log(t2);
+      // ----- Методи ----------
+      // генерування полів рулетки
+      // виведення списку згенерованих значень
+      // приведення до рядка
+      // крутити рулетку (отримання випадкового балу)
+      // метод гри (користувач крутить рулетку поки не відмовиться)
+      // поки користувач хоче крутити
+      //  визначаємо рандомне значення рулетки
+      // додаємо до загальної суми
+      //повідомляємо користувача про результат та загальну кількість балів
+      function Roulette(scoresNumber, minScore, maxScore) {
+        this.minScore = minScore;
+        this.maxScore = maxScore;
+        this.scores = this.getScoresList(scoresNumber);
+      }
+
+      // ----- Методи ----------
+      Roulette.prototype.getRandomNumber = function (minV, maxV) {
+        return minV + Math.floor(Math.random() * (maxV - minV + 1));
+      };
+
+      // генерування полів рулетки
+      Roulette.prototype.getScoresList = function (scoresNumber) {
+        let scoresList = [];
+        for (let i = 0; i < scoresNumber; i++) {
+          const randomNumber = this.getRandomNumber(this.minScore, this.maxScore);
+          scoresList.push(randomNumber);
+        }
+        return scoresList;
+      };
+
+      // виведення списку згенерованих значень
+      Roulette.prototype.printScores = function () {
+        document.write(this.scores);
+      };
+
+      // приведення до рядка
+      Roulette.prototype.toString = function () {
+        return `Roulette (${(this.minScore, this.maxScore)}),`;
+      };
+
+      // крутити рулетку (отримання випадкового балу)
+
+      Roulette.prototype.getRandomScore = function () {
+        let randomIndex = this.getRandomNumber(0, this.scores.length - 1);
+        return this.scores[randomIndex];
+      };
+
+      // метод гри (користувач крутить рулетку поки не відмовиться)
+
+      Roulette.prototype.playGame = function () {
+        let sum = 0;
+        // поки користувач хоче крутити
+        while (confirm("Хочете критити рулетку?")) {
+          // визначаємо рандомне значення рулетки
+          const randomScore = this.getRandomScore();
+          // додаємо до загальної суми
+          sum += randomScore;
+          //  повідомляємо користувача про результат та загальну кількість балів
+          alert(`Ваш поточний виграш/програш = ${randomScore}. Заагальний ваграш = ${sum}`);
+        }
+        alert(`Загальний виграш = ${sum}`);
+      };
+
+      let r1 = new Roulette(10, -100, 100);
+      r1.playGame();
+    </script>
+  </body>
+</html>
