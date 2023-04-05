@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const car = {
+        brand: "Mercedes",
+        tankSize: 100,
+        availibleLiters: 30,
+        quantitySeats: 20,
+        quantityPassengers: 5,
+
+        refueling: function (liters) {
+          if (this.availibleLiters + liters > this.tankSize) {
+            console.log(`Невистачає обєму бака, всього можна заправити ${this.tankSize - this.availibleLiters} літрів`);
+          } else {
+            console.log(`Ви заправили ${liters} літрів, тепер в баку ${this.availibleLiters + liters} літрів`);
+            this.availibleLiters += liters;
+          }
+        },
+        showQuantityPassengers: function () {
+          console.log(`В авто ${quantityPassengers} пасажирів`);
+        },
+        addPassengers: function (quantityNewPass) {
+          if (this.quantityPassengers + quantity > this.quantitySeats) {
+            console.log(`Невистачає вільних місць, всього вілних місць ${this.quantitySeats - this.quantityPassengers}`);
+          } else {
+            console.log(`Добавлено ${quantity} пасажирів. Залишилось вільних місць - ${this.quantitySeats - (this.quantityPassengers + quantity)}`);
+            this.quantityPassengers += quantity;
+          }
+        },
+        dropPassengers: function (quantityLeavPass) {
+          if (quantityLeavPass > this.quantityPassengers) {
+            console.log(`Всього ${this.quantityPassengers} пасажирів`);
+          } else {
+            console.log(`Висадили ${quantityLeavPass} пасажирів, залишилось ${this.quantityPassengers - quantityLeavPass}`);
+            this.quantityPassengers -= quantityLeavPass;
+          }
+        },
+      };
+
+      //   car.refueling(10);
+      //   car.addPassengers(15);
+      car.dropPassengers(2);
+    </script>
+  </body>
+</html>

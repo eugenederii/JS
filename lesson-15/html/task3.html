@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task3</title>
+  </head>
+  <body>
+    <script>
+      class MultChecker {
+        constructor(fixNumber) {
+          this.fixNumber = fixNumber;
+          this.corectAnswer = 0;
+          this.wrongAnswer = 0;
+        }
+
+        getRandomMathExample() {
+          const randomNum = 1 + Math.floor(Math.random() * 20);
+          const result = this.fixNumber * randomNum;
+          return { question: `${this.fixNumber} * ${randomNum} = ?`, answer: result };
+        }
+
+        checkTheAnswer() {
+          do {
+            let example = this.getRandomMathExample();
+            example.answer;
+            example.question;
+
+            const answerUser = parseInt(prompt(example.question));
+
+            if (answerUser !== example.answer) {
+              console.log(`Ваша відповідь неправильна`);
+              this.wrongAnswer++;
+            } else {
+              console.log("Вірно");
+              this.corectAnswer++;
+            }
+          } while (confirm("Продовжити?"));
+        }
+
+        render() {
+          document.write(
+            `З ${this.corectAnswer + this.wrongAnswer} прикладів правильних відповідей ${this.corectAnswer}<br> Неправильних відповідей ${this.wrongAnswer}`
+          );
+        }
+      }
+
+      let mult = new MultChecker(10);
+      mult.checkTheAnswer();
+      mult.render();
+    </script>
+  </body>
+</html>

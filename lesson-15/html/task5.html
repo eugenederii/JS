@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task5</title>
+  </head>
+  <body>
+    <script>
+      const menNames = ["Alexander", "Daniel", "Ethan", "Jacob", "James", "John", "Liam", "Matthew", "Michael", "William"];
+      const girlNames = ["Abigail", "Aria", "Chloe", "Emma", "Isabella", "Lily", "Mia", "Olivia", "Sophia", "Zoe"];
+
+      class DanceManagement {
+        constructor(men, girls) {
+          this.men = men;
+          this.girls = girls;
+        }
+
+        getRandomBoy() {
+          const randomBoy = Math.floor(Math.random() * this.men.length);
+
+          return this.men[randomBoy];
+        }
+
+        getRandomGirl() {
+          const randomGirl = Math.floor(Math.random() * this.girls.length);
+
+          return this.girls[randomGirl];
+        }
+
+        showCouplesForDancing() {
+          document.write(`${this.getRandomBoy()} - ${this.getRandomGirl()}<br>`);
+        }
+
+        run() {
+          setInterval(() => this.showCouplesForDancing(), 5000);
+        }
+      }
+
+      let dance = new DanceManagement(menNames, girlNames);
+      dance.run();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task1</title>
+  </head>
+  <body>
+    <script>
+      function createField() {
+        const field = Array(4)
+          .fill()
+          .map(() => Array(4).fill(0));
+
+        const x = Math.floor(Math.random() * 4);
+        const y = Math.floor(Math.random() * 4);
+        field[x][y] = 1;
+        return field;
+      }
+
+      const tir = {
+        field: createField(),
+        shoot: function (x, y) {
+          if (this.field[x][y] === 1) {
+            alert("Ви влучили в зайця");
+          } else {
+            alert("Промах");
+          }
+        },
+        printPlayZone: function () {
+          console.log(this.field);
+        },
+      };
+
+      tir.printPlayZone();
+      tir.shoot(2, 2);
+    </script>
+  </body>
+</html>

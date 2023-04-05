@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task4</title>
+  </head>
+  <body>
+    <script>
+      const arrBaners = [
+        {
+          image: "../img/img1.png",
+          link: "https://auto.ria.com/uk/auto_mercedes_benz_c_class_33458021.html",
+        },
+        {
+          image: "../img/img2.png",
+          link: "https://auto.ria.com/uk/auto_mercedes_benz_g_class_34239633.html",
+        },
+        {
+          image: "../img/img3.png",
+          link: "https://auto.ria.com/uk/auto_mercedes_benz_gle_class_34192222.html",
+        },
+        {
+          image: "../img/img4.png",
+          link: "https://auto.ria.com/uk/auto_mercedes_benz_gle_class_33893369.html",
+        },
+      ];
+
+      class Baner {
+        constructor(banerList) {
+          this.banerList = banerList;
+        }
+
+        randomIndexArr() {
+          const randomNum = Math.floor(Math.random() * this.banerList.length);
+
+          return this.banerList[randomNum];
+        }
+
+        showRandomBaner() {
+          let randomImg = this.randomIndexArr();
+
+          document.write(`<a href=${randomImg.link}><img src=${randomImg.image}></a>`);
+        }
+      }
+
+      let showBaner = new Baner(arrBaners);
+      showBaner.showRandomBaner();
+    </script>
+  </body>
+</html>
