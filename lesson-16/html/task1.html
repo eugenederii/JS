@@ -105,19 +105,19 @@
           this.#year -= years;
         }
 
-        subtractMonth(months) {
+        subMonth(months) {
           let totalMonths = this.#month - months;
           if (totalMonths >= 1) {
             this.#month = totalMonths;
           } else {
             let remainingMonths = 12 - totalMonths;
             let remainingYears = Math.floor((totalMonths - 1) / 12) + 1;
-            this.subtractYears(remainingYears);
+            this.subYears(remainingYears);
             this.#month = remainingMonths;
           }
         }
 
-        subtractDays(days) {
+        subDays(days) {
           const daysInMonth = this.getDaysInMonth();
           const totalDays = this.day - days;
           if (totalDays >= 1) {
@@ -125,7 +125,7 @@
           } else {
             let remainingDays = days - this.day;
             let remainingMonths = Math.ceil(remainingDays / daysInMonth);
-            this.subtractMonths(remainingMonths);
+            this.subMonths(remainingMonths);
             let daysToSubtract = remainingMonths * daysInMonth - remainingDays;
             this.day = daysInMonth - daysToSubtract;
           }
