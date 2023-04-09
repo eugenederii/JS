@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class TBankomat {
+        #banknotes = {
+          5: 40,
+          10: 30,
+          20: 20,
+          50: 20,
+          100: 10,
+          200: 10,
+        };
+        constructor(banknoteNum5, banknoteNum10, banknoteNum20, banknoteNum50, banknoteNum100, banknoteNum200) {
+          this.banknote_5 = banknoteNum5;
+          this.banknote_10 = banknoteNum10;
+          this.banknote_20 = banknoteNum20;
+          this.banknote_50 = banknoteNum50;
+          this.banknote_100 = banknoteNum100;
+          this.banknote_200 = banknoteNum200;
+        }
+        //метод знаходження макс суми
+        get maxSum() {
+          let sum = 0;
+          for (let banknote in this.#banknotes) {
+            if (this.#banknotes[banknote] > 0) {
+              //юзаем parseInt т.к в obj хранятся строки
+              sum += parseInt(banknote) * this.#banknotes[banknote];
+            }
+          }
+          return sum;
+        }
+        //метод знаходження min суми
+        get minSum() {
+          let sum = 0;
+          for (let banknote in this.#banknotes) {
+            if (this.#banknotes[banknote] > 0) {
+              sum += parseInt(banknote);
+              break;
+            }
+          }
+          return sum;
+        }
+        // метод вывода кеша
+        withdrawal(amount) {
+          if (amount > this.maxSum()) {
+            throw new Error("Not enough money in bankomat");
+          }
+          if (amount < this.minSum()) {
+            throw new Error(`Minimum withdrawal amount ${this.minSum()}`);
+          }
+
+          let requiredAmount = amount;
+          // пустой обьект будет содержать инфу сколько каких банкнот надо выдать клиенту
+          const banknotesForClient = {};
+          for (let banknote in this.#banknotes) {
+            banknotesForClient[banknote] = 0;
+            //поки не видали всю запитувану суму або поки не закінчилися купюри в банкоматі
+            while (requiredAmount >= parseInt(banknote) && this.#banknotes[banknote] > 0) {
+              banknotesForClient[banknote]++;
+              //Віднімаємо номінал поточної купюри із запитуваної суми а потім купюри
+              requiredAmount -= parseInt(banknote);
+              this.#banknotes[banknote]--;
+            }
+          }
+          if (requiredAmount > 0) {
+            for (let banknote in this.#banknotes) {
+              this.#banknotes[banknote] += banknotesForClient[banknote];
+            }
+            throw new Error("The bancomat cannot issue the requested amount");
+          }
+        }
+        toString() {
+          return `Banknotes: ${JSON.stringify(this.#banknotes)}`;
+        }
+      }
+
+      const bank1 = new TBankomat();
+      console.log(bank1.toString());
+      console.log(bank1.minSum);
+      console.log(bank1.maxSum);
+    </script>
+  </body>
+</html>

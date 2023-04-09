@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Реалізувати конвертер валют. Курси валют повинні бути статичними
+
+      //   class Converter {
+      //     static dollarRate = 39;
+      //     static euroRate = 40;
+
+      //     static dollarToGrivna(dollarValue) {
+      //       return dollarValue * Converter.dollarRate;
+      //     }
+
+      //     static euroToGrivna(euroValue) {
+      //       return euroValue * Converter.euroRate;
+      //     }
+
+      //     static grivnaToDollar(grivnaValue) {
+      //       return grivnaValue / Converter.dollarRate;
+      //     }
+      //     static grivnaToEuro(grivnaValue) {
+      //       return grivnaValue / Converter.euroRate;
+      //     }
+      //   }
+
+      //   document.write(Converter.grivnaToDollar(20000));
+      ///////////////////////////////////////////////////////////////////////
+
+      //   class Reklama {
+      //     static minIntervalValue;
+      //     static maxInttervalValue;
+
+      //     constructor(massage, minIntervalValue, maxInttervalValue) {
+      //       this.massage = massage;
+      //       Reklama.minIntervalValue = minIntervalValue;
+      //       Reklama.maxInttervalValue = maxInttervalValue;
+      //     }
+      //     getCurrentIntervalValue() {
+      //       document.write(`<br>min = ${Reklama.minIntervalValue}, max = ${Reklama.maxInttervalValue}<br>`);
+      //       return Reklama.minIntervalValue + Math.floor(Math.random() * (Reklama.maxInttervalValue - Reklama.minIntervalValue + 1));
+      //     }
+      //     start() {
+      //       setTimeout(() => {
+      //         document.write(this.massage);
+      //         this.start();
+      //       }, this.getCurrentIntervalValue() * 1000);
+      //     }
+      //   }
+
+      //   for (let i = 0; i < 5; i++) {
+      //     let r1 = new Reklama(`Hello ${i}<br>`, 0, 5);
+      //     r1.start();
+      //   }
+
+      //   setTimeout(() => {
+      //     Reklama.minIntervalValue = 3;
+      //     Reklama.maxIntervalValue = 6;
+      //   }, 4000);
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //   class MyArray {
+      //     static sumCounter = 0;
+      //     static prodCounter = 0;
+      //     static maxCounter = 0;
+      //     static totalObjectNumber = 0;
+
+      //     constructor(dataList) {
+      //       this.dataList = [...dataList];
+      //       MyArray.totalObjectNumber++;
+      //     }
+
+      //     getSum() {
+      //       MyArray.sumCounter++;
+      //       return this.dataList.reduce((prevSum, el) => prevSum + el);
+      //     }
+      //     getProduct() {
+      //       MyArray.prodCounter++;
+      //       return this.dataList.reduce((prevProd, el) => prevProd * el);
+      //     }
+      //     getMax() {
+      //       MyArray.maxCounter++;
+      //       return Math.max(...this.dataList);
+      //     }
+      //     static getStatistics() {
+      //       return `Object number = ${this.totalObjectNumber}, sum = ${this.sumCounter}, prod = ${this.prodCounter}, max = ${this.maxCounter}`;
+      //     }
+      //   }
+
+      //   let r1 = new MyArray([2, 5, 8]);
+      //   let r2 = new MyArray([3, 5, 7]);
+
+      //   document.write(`Sum1 = ${r1.getSum()}<br>`);
+      //   document.write(`Sum2 = ${r2.getSum()}<br >`);
+      //   document.write(`Sum2 = ${r2.getSum()}<br >`);
+      //   document.write(`Prod1 = ${r1.getProduct()}<br>`);
+
+      //   document.write(`Statistics : ${MyArray.getStatistics()}`);
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // class DutyStudent {
+      //   static currentDutyStudentObj;
+
+      //   constructor(studentsList) {
+      //     if (DutyStudent.currentDutyStudentObj) return DutyStudent.currentDutyStudentObj;
+
+      //     this.studentsList = studentsList;
+      //     this.currentDutyStudent = this.getRandomStudent();
+
+      //     DutyStudent.currentDutyStudentObj = this;
+      //   }
+      //   getRandomStudent() {
+      //     const studentIndex = Math.floor(Math.random() * this.studentsList.length);
+
+      //     return this.studentsList[studentIndex];
+      //   }
+      //   toString() {
+      //     return `Duty : ${this.currentDutyStudent}`;
+      //   }
+      // }
+      // let studentsList = ["Ivan", "Olga", "Piter", "Artem"];
+      // let s1 = new DutyStudent(studentsList);
+      // document.write(`${s1}<br>`);
+      // let s2 = new DutyStudent(studentsList);
+      // document.write(`${s2}<br>`);
+      // let s3 = new DutyStudent(studentsList);
+      // document.write(`${s3}<br>`);
+
+      // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // class Student {
+      //   constructor(name, score) {
+      //     this.name = name;
+      //     this.score = score;
+      //   }
+      //   static getAverageScore(student1, student2) {
+      //     return (student1.score + student2.score) / 2;
+      //   }
+
+      //   toString() {
+      //     return `${this.name} - ${this.score}`;
+      //   }
+      // }
+
+      // class Team {
+      //   constructor(student1, student2) {
+      //     this.student1 = student1;
+      //     this.student2 = student2;
+      //   }
+
+      //   get averageScore() {
+      //     return Student.getAverageScore(this.student1, this.student2);
+      //   }
+
+      //   static getWinnerTeam(team1, team2) {
+      //     if (team1.averageScore < team2.averageScore) return team1.toString();
+      //     if (team1.averageScore > team2.averageScore) return team2.toString();
+      //     return "Draw";
+      //   }
+
+      //   toString() {
+      //     return `Team :<br>${this.student1}<br> ${this.student2}`;
+      //   }
+      // }
+
+      // class Game {
+      //   constructor(studentsList) {
+      //     this.studentsList = studentsList;
+      //   }
+
+      //   getRandomStudent(currentStudentList) {
+      //     const studentIndex = Math.floor(Math.random() * currentStudentList.length);
+      //     const student = currentStudentList[studentIndex];
+
+      //     currentStudentList.splice(studentIndex, 1);
+      //     return student;
+      //   }
+      //   play() {
+      //     let currentStudentList = [...this.studentsList];
+      //     let st1 = this.getRandomStudent(currentStudentList);
+      //     let st2 = this.getRandomStudent(currentStudentList);
+      //     const team1 = new Team(st1, st2);
+
+      //     st1 = this.getRandomStudent(currentStudentList);
+      //     st2 = this.getRandomStudent(currentStudentList);
+      //     const team2 = new Team(st1, st2);
+
+      //     const winner = Team.getWinnerTeam(team1, team2);
+      //     document.write(winner);
+      //   }
+      // }
+
+      // const studenList = [new Student("Ivan1", 22), new Student("Ivan2", 12), new Student("Ivan3", 32), new Student("Ivan4", 42), new Student("Ivan5", 37)];
+
+      // const game = new Game(studenList);
+      // game.play();
+
+      if (amount < this.getMinimumSum()) {
+        throw new Error(`The minimum amount you can withdraw is ${this.getMinimumSum()}`);
+      }
+
+      let remainingAmount = amount;
+
+      const banknotesToWithdraw = {};
+
+      for (let banknote in this.#banknotes) {
+        banknotesToWithdraw[banknote] = 0;
+        while (remainingAmount >= parseInt(banknote) && this.#banknotes[banknote] > 0) {
+          banknotesToWithdraw[banknote]++;
+          remainingAmount -= parseInt(banknote);
+          this.#banknotes[banknote]--;
+        }
+      }
+
+      if (remainingAmount > 0) {
+        for (let banknote in banknotesToWithdraw) {
+          this.#banknotes[banknote] += banknotesToWithdraw[banknote];
+        }
+
+        throw new Error("The bankomat can't dispense the requested amount");
+      }
+
+      return banknotesToWithdraw;
+    </script>
+  </body>
+</html>

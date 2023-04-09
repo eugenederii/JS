@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Service {
+        #title;
+        #cost;
+        #deadline;
+
+        constructor(title, cost, deadline) {
+          this.#title = title;
+          this.#cost = cost;
+          this.#deadline = deadline;
+        }
+
+        get title() {
+          return this.#title;
+        }
+
+        get cost() {
+          return this.#cost;
+        }
+
+        get deadline() {
+          return this.#deadline;
+        }
+
+        set title(newTitle) {
+          this.#title = title;
+        }
+        set cost(newCost) {
+          if (newCost < 0) {
+            throw new Error("Error >COST<");
+          }
+          this.#cost = cost;
+        }
+        set deadline(newTerm) {
+          if (newTerm < 0) {
+            throw new Error("Error >Deadline<");
+          }
+          this.#deadline = deadline;
+        }
+        toString() {
+          return `Title: ${Service.title}, cost: ${Service.cost}, deadline: ${Service.deadline}`;
+        }
+      }
+
+      class Branch {
+        #country;
+        #city;
+        #street;
+        #houseNumber;
+
+        constructor(country, city, street, houseNumber) {
+          this.#country = country;
+          this.#city = city;
+          this.#street = street;
+        }
+
+        get country() {
+          return this.#country;
+        }
+        get city() {
+          return this.#city;
+        }
+        get street() {
+          return this.#street;
+        }
+        get houseNumber() {
+          return this.#houseNumber;
+        }
+
+        set country(country) {
+          this.#country = country;
+        }
+        set city(city) {
+          this.#city = city;
+        }
+        set street(street) {
+          this.#street = street;
+        }
+        set houseNumber(houseNumber) {
+          if (houseNumber < 0) {
+            throw new Error("Not correct number");
+          }
+          this.#houseNumber = houseNumber;
+        }
+      }
+
+      const branches = [
+        new Branch("Country 1", "City 1", "Street 1", "1A"),
+        new Branch("Country 2", "City 2", "Street 2", "2B"),
+        new Branch("Country 3", "City 3", "Street 3", "3C"),
+      ];
+      const services = [new Service("Service 1", 100, 10), new Service("Service 2", 200, 7), new Service("Service 3", 400, 3)];
+
+      class Firm {
+        #name;
+        #foundationDate;
+        #services;
+        #branches;
+
+        constructor(name, foundationDate, services, branches) {
+          this.#name = name;
+          this.#foundationDate = foundationDate;
+          this.#services = services;
+          this.#branches = branches;
+        }
+
+        get name() {
+          return this.#name;
+        }
+
+        get foundationDate() {
+          return this.#foundationDate;
+        }
+
+        get services() {
+          return this.#services;
+        }
+
+        get branches() {
+          return this.#branches;
+        }
+        // визначення кількості років існування фірми
+        get getAge() {
+          const now = new Date();
+          const foundationYear = this.#foundationDate.getFullYear();
+          const foundationMonth = this.#foundationDate.getMonth();
+          const foundationDay = this.#foundationDate.getDate();
+          const age = now.getFullYear() - foundationYear;
+
+          if (now.getMonth() < foundationMonth || (now.getMonth() === foundationMonth && now.getDate() < foundationDay)) {
+            return age - 1;
+          }
+
+          return age;
+        }
+        // виведення всіх філіалів фірми у вказаному місті;
+        getBranchesInCity(city) {
+          const branchesInCity = [];
+
+          for (let branch of this.#branches) {
+            if (branch.city === city) {
+              branchesInCity.push(branch);
+            }
+          }
+
+          return branchesInCity;
+        }
+
+        //виведення на екран послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу;
+        getServicesForBudgetAndTime(budget, time) {
+          const servicesAvailable = [];
+
+          for (let service of this.#services) {
+            if (service.cost <= budget && service.deadline <= time) {
+              servicesAvailable.push(service);
+            }
+          }
+
+          return servicesAvailable;
+        }
+      }
+
+      let firm1 = new Firm("Example Firm", new Date(1997, 0, 12), services, branches);
+      console.log(firm1.getAge);
+      const branchesInCity = firm1.getBranchesInCity("City 1");
+      console.log(branchesInCity);
+      const servicesForBudgetAndTime = firm1.getServicesForBudgetAndTime(500, 7);
+      console.log(servicesForBudgetAndTime);
+    </script>
+  </body>
+</html>

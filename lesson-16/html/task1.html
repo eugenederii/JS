@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task1</title>
+  </head>
+  <body>
+    <script>
+      class TDate {
+        #day;
+        #month;
+        #year;
+
+        constructor(day, month, year) {
+          this.day = day;
+          this.month = month;
+          this.year = year;
+        }
+        get day() {
+          return this.#day;
+        }
+        set day(newDay) {
+          if (newDay < 1) {
+            throw new Error("Invalid day");
+          }
+          this.#day = newDay;
+        }
+        get month() {
+          return this.#month;
+        }
+        set month(newMonth) {
+          if (newMonth < 1 || newMonth > 12) {
+            throw new Error("Invalid month");
+          }
+          this.#month = newMonth;
+        }
+        get year() {
+          return this.#year;
+        }
+        set year(newYear) {
+          if (newYear < 1) {
+            throw new Error("Invalid year");
+          }
+          this.#year = newYear;
+        }
+
+        toString() {
+          return `${this.#day}/${this.#month}/${this.#year}`;
+        }
+
+        isLeapYear() {
+          return (this.year % 4 === 0 && this.year % 100 !== 0) || this.year % 400 === 0;
+        }
+
+        getDaysInMonth() {
+          const daysInMonth = {
+            1: 31,
+            2: this.isLeapYear() ? 29 : 28,
+            3: 31,
+            4: 30,
+            5: 31,
+            6: 30,
+            7: 31,
+            8: 31,
+            9: 30,
+            10: 31,
+            11: 30,
+            12: 31,
+          };
+          return daysInMonth[this.month];
+        }
+
+        addDays(days) {
+          const daysInMonth = this.getDaysInMonth();
+          const totalDays = this.day + days;
+          if (totalDays <= daysInMonth) {
+            this.day = totalDays;
+          } else {
+            let leftDays = totalDays % daysInMonth;
+            let leftMonth = Math.floor(totalDays / daysInMonth);
+            this.addMonths(leftMonth);
+            this.day = leftDays;
+          }
+        }
+
+        addMonths(months) {
+          let totalMonths = this.month + months;
+          if (totalMonths <= 12) {
+            this.month = totalMonths;
+          } else {
+            let remainingMonths = totalMonths % 12;
+            let remainingYears = Math.floor(totalMonths / 12);
+            this.addYears(remainingYears);
+            this.month = remainingMonths;
+          }
+        }
+
+        addYears(years) {
+          this.#year += years;
+        }
+
+        subYears(years) {
+          this.#year -= years;
+        }
+
+        subtractMonth(months) {
+          let totalMonths = this.#month - months;
+          if (totalMonths >= 1) {
+            this.#month = totalMonths;
+          } else {
+            let remainingMonths = 12 - totalMonths;
+            let remainingYears = Math.floor((totalMonths - 1) / 12) + 1;
+            this.subtractYears(remainingYears);
+            this.#month = remainingMonths;
+          }
+        }
+
+        subtractDays(days) {
+          const daysInMonth = this.getDaysInMonth();
+          const totalDays = this.day - days;
+          if (totalDays >= 1) {
+            this.day = totalDays;
+          } else {
+            let remainingDays = days - this.day;
+            let remainingMonths = Math.ceil(remainingDays / daysInMonth);
+            this.subtractMonths(remainingMonths);
+            let daysToSubtract = remainingMonths * daysInMonth - remainingDays;
+            this.day = daysInMonth - daysToSubtract;
+          }
+        }
+      }
+      const date = new TDate(9, 4, 2023);
+
+      console.log(date.toString());
+      date.addDays(400);
+      console.log(date.toString());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   class TTime {
+      //     constructor(hours, minutes) {
+      //       this.hours = hours;
+      //       this.minutes = minutes;
+      //     }
+
+      //     increaseHours(value) {
+      //       this.hours = (this.hours + value) % 24;
+      //     }
+
+      //     decreaseHours(value) {
+      //       this.hours -= value;
+      //     }
+
+      //     increaseMinutes(value) {
+      //       this.minutes += value;
+      //       this.increaseHours(Math.floor(this.minutes / 60));
+      //       this.minutes = this.minutes % 60;
+      //     }
+
+      //     decreaseMinutes(value) {
+      //       this.minutes -= value;
+      //     }
+
+      //     toString() {
+      //       return `${this.hours} : ${this.minutes}`;
+      //     }
+      //   }
+
+      //   let t1 = new TTime(3, 45);
+      //   t1.increaseHours(7);
+      //   t1.increaseMinutes(80);
+      //   document.write(t1);
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //   class Pupil {
+      //     //1
+      //     #averageScore;
+      //     #class;
+      //     #userName;
+      //     #age;
+
+      //     constructor(initName, initClass, initAge, initScore, minAge = 7, maxAge = 17) {
+      //       //4
+      //       this.minAge = minAge;
+      //       this.maxAge = maxAge;
+      //       this.Age = initAge;
+      //       this.UserName = initName;
+      //       this.Class = initClass;
+      //       this.AverageScore = initScore;
+      //     }
+
+      //     //2
+      //     get AverageScore() {
+      //       return this.#averageScore;
+      //     }
+      //     get Class() {
+      //       return this.#class;
+      //     }
+      //     get UserName() {
+      //       return this.#userName;
+      //     }
+      //     get Age() {
+      //       return this.#age;
+      //     }
+      //     //3
+      //     set AverageScore(newVal) {
+      //       if (newVal < 0 || newVal > 12) throw new Error("Score is not correct");
+      //       this.#averageScore = newVal;
+      //     }
+      //     set Class(newClass) {
+      //       if (newClass < 1 || newClass > 11) throw new Error("Class is not correct");
+      //       this.#class = newClass;
+      //     }
+      //     set UserName(newName) {
+      //       if (newName.length === 0) throw new Error("Name cant be empy");
+      //       this.#userName = newName;
+      //     }
+      //     set Age(newValue) {
+      //       if (newValue < this.minAge || newValue > this.maxAge) throw new Error("Age is not correct");
+      //       else this.#age = newValue;
+      //     }
+      //     //Методи
+      //     get Category() {
+      //       if (this.AverageScore < 4) return "Двійочник";
+      //       if (this.AverageScore < 7) return "Трійочник";
+      //       if (this.AverageScore < 10) return "Хорошист";
+      //       return "Відмінник";
+      //     }
+
+      //     get YearsToComplete() {
+      //       return 11 - this.Class;
+      //     }
+      //   }
+
+      //   let p1 = new Pupil("Ivan", 7, 13, 1);
+      //   let r = p1.Age;
+      //   p1.Age = 11;
+      //   document.write(`Category: ${p1.Category}<br>`);
+      //   document.write(`Class ${p1.YearsToComplete}<br>`);
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      class Client {
+        //1
+        #accountNumber;
+        #money;
+
+        constructor(initeName, accountNumber, initeMoney) {
+          this.name = initeName;
+          this.#accountNumber = accountNumber;
+          this.#money = initeMoney;
+        }
+        //2
+        // set не треба, бо тільки для читання
+        get Money() {
+          return this.#money;
+        }
+        get AccountNumber() {
+          return this.#accountNumber;
+        }
+        //3
+        set Money(val) {
+          if (this.#money + val < 0) throw new Error("You cant get money");
+          this.#money += val;
+        }
+
+        toString() {
+          return `${this.name}, account: ${this.AccountNumber}, balance: ${this.Money}`;
+        }
+      }
+
+      let user = new Client("Ivan", "43232", 20000);
+
+      document.write(user);
+    </script>
+  </body>
+</html>
