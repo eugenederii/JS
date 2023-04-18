@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function convert() {
+        const dollarRate = parseFloat(document.getElementById("course").value);
+        const grn = parseFloat(document.getElementById("grn").value);
+        const dollarValue = grn / dollarRate;
+        document.getElementById("result").innerHTML = dollarValue.toFixed(2);
+      }
+      window.onload = function () {
+        document.querySelector("button").onclick = convert;
+      };
+    </script>
+
+    <label>
+      Course
+      <input type="number" id="course" value="39" />
+    </label>
+    <label>
+      GRN
+      <input type="number" id="grn" value="0" />
+    </label>
+    <div>
+      <button>Convert</button>
+    </div>
+    <div>Dollars = <span id="result"></span></div>
+  </body>
+</html>

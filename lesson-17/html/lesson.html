@@ -33,36 +33,36 @@
       //   document.write(Converter.grivnaToDollar(20000));
       ///////////////////////////////////////////////////////////////////////
 
-      //   class Reklama {
-      //     static minIntervalValue;
-      //     static maxInttervalValue;
+      class Reklama {
+        static minIntervalValue;
+        static maxInttervalValue;
 
-      //     constructor(massage, minIntervalValue, maxInttervalValue) {
-      //       this.massage = massage;
-      //       Reklama.minIntervalValue = minIntervalValue;
-      //       Reklama.maxInttervalValue = maxInttervalValue;
-      //     }
-      //     getCurrentIntervalValue() {
-      //       document.write(`<br>min = ${Reklama.minIntervalValue}, max = ${Reklama.maxInttervalValue}<br>`);
-      //       return Reklama.minIntervalValue + Math.floor(Math.random() * (Reklama.maxInttervalValue - Reklama.minIntervalValue + 1));
-      //     }
-      //     start() {
-      //       setTimeout(() => {
-      //         document.write(this.massage);
-      //         this.start();
-      //       }, this.getCurrentIntervalValue() * 1000);
-      //     }
-      //   }
+        constructor(massage, minIntervalValue, maxInttervalValue) {
+          this.massage = massage;
+          Reklama.minIntervalValue = minIntervalValue;
+          Reklama.maxInttervalValue = maxInttervalValue;
+        }
+        getCurrentIntervalValue() {
+          document.write(`<br>min = ${Reklama.minIntervalValue}, max = ${Reklama.maxInttervalValue}<br>`);
+          return Reklama.minIntervalValue + Math.floor(Math.random() * (Reklama.maxInttervalValue - Reklama.minIntervalValue + 1));
+        }
+        start() {
+          setTimeout(() => {
+            document.write(this.massage);
+            this.start();
+          }, this.getCurrentIntervalValue() * 1000);
+        }
+      }
 
-      //   for (let i = 0; i < 5; i++) {
-      //     let r1 = new Reklama(`Hello ${i}<br>`, 0, 5);
-      //     r1.start();
-      //   }
+      for (let i = 0; i < 5; i++) {
+        let r1 = new Reklama(`Hello ${i}<br>`, 0, 5);
+        r1.start();
+      }
 
-      //   setTimeout(() => {
-      //     Reklama.minIntervalValue = 3;
-      //     Reklama.maxIntervalValue = 6;
-      //   }, 4000);
+      setTimeout(() => {
+        Reklama.minIntervalValue = 3;
+        Reklama.maxIntervalValue = 6;
+      }, 4000);
 
       //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -106,33 +106,33 @@
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-      // class DutyStudent {
-      //   static currentDutyStudentObj;
+      class DutyStudent {
+        static currentDutyStudentObj;
 
-      //   constructor(studentsList) {
-      //     if (DutyStudent.currentDutyStudentObj) return DutyStudent.currentDutyStudentObj;
+        constructor(studentsList) {
+          if (DutyStudent.currentDutyStudentObj) return DutyStudent.currentDutyStudentObj;
 
-      //     this.studentsList = studentsList;
-      //     this.currentDutyStudent = this.getRandomStudent();
+          this.studentsList = studentsList;
+          this.currentDutyStudent = this.getRandomStudent();
 
-      //     DutyStudent.currentDutyStudentObj = this;
-      //   }
-      //   getRandomStudent() {
-      //     const studentIndex = Math.floor(Math.random() * this.studentsList.length);
+          DutyStudent.currentDutyStudentObj = this;
+        }
+        getRandomStudent() {
+          const studentIndex = Math.floor(Math.random() * this.studentsList.length);
 
-      //     return this.studentsList[studentIndex];
-      //   }
-      //   toString() {
-      //     return `Duty : ${this.currentDutyStudent}`;
-      //   }
-      // }
-      // let studentsList = ["Ivan", "Olga", "Piter", "Artem"];
-      // let s1 = new DutyStudent(studentsList);
-      // document.write(`${s1}<br>`);
-      // let s2 = new DutyStudent(studentsList);
-      // document.write(`${s2}<br>`);
-      // let s3 = new DutyStudent(studentsList);
-      // document.write(`${s3}<br>`);
+          return this.studentsList[studentIndex];
+        }
+        toString() {
+          return `Duty : ${this.currentDutyStudent}`;
+        }
+      }
+      let studentsList = ["Ivan", "Olga", "Piter", "Artem"];
+      let s1 = new DutyStudent(studentsList);
+      document.write(`${s1}<br>`);
+      let s2 = new DutyStudent(studentsList);
+      document.write(`${s2}<br>`);
+      let s3 = new DutyStudent(studentsList);
+      document.write(`${s3}<br>`);
 
       // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

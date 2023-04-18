@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task6</title>
+  </head>
+  <body>
+    <label>
+      Price number
+      <input type="number" id="num-inputs" value="1" />
+    </label>
+
+    <button id="get-table">get table</button>
+    <div id="table-container"></div>
+    <button id="get-sum">get sum</button>
+    <div id="sum"></div>
+
+    <script>
+      const getTableButton = document.getElementById("get-table");
+      const tableContainer = document.getElementById("table-container");
+      const getSumButton = document.getElementById("get-sum");
+      const sumElement = document.getElementById("sum");
+
+      getTableButton.addEventListener("click", function () {
+        const numInputs = parseInt(document.getElementById("num-inputs").value);
+        let tableHTML = "<table>";
+        tableHTML += "<thead><tr><th>Оцінка</th></tr></thead>";
+        tableHTML += "<tbody>";
+        for (let i = 0; i < numInputs; i++) {
+          tableHTML += "<tr><td><input type='number' class='input-grade'></td></tr>";
+        }
+        tableHTML += "</tbody></table>";
+        tableContainer.innerHTML = tableHTML;
+      });
+
+      getSumButton.addEventListener("click", function () {
+        const inputGrades = document.getElementsByClassName("input-grade");
+        let sum = 0;
+        for (let i = 0; i < inputGrades.length; i++) {
+          sum += parseFloat(inputGrades[i].value);
+        }
+        const avg = sum / inputGrades.length;
+        sumElement.innerHTML = "Sum = " + avg.toFixed(1);
+      });
+    </script>
+  </body>
+</html>

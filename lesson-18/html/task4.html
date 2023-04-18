@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task4</title>
+  </head>
+  <body>
+    <script>
+      class WishesGeneration {
+        constructor(wishes) {
+          this.wishes = [...wishes];
+        }
+
+        get randomIndex() {
+          return Math.floor(Math.random() * this.wishes.length);
+        }
+
+        render() {
+          const resultDiv = document.createElement("div");
+          resultDiv.classList.add("result");
+
+          for (let i = 0; i < 3; i++) {
+            const index = this.randomIndex;
+            const wish = this.wishes[index];
+            this.wishes.splice(index, 1);
+
+            const wishDiv = document.createElement("div");
+            wishDiv.innerHTML = wish;
+
+            resultDiv.appendChild(wishDiv);
+          }
+          document.body.appendChild(resultDiv);
+        }
+      }
+
+      const wishesList = [
+        "Щастя та радості у Вашому житті!",
+        "Здоров'я та благополуччя Вам і Вашій родині!",
+        "Хай у Вашому житті буде багато пригод та вражень!",
+        "Щоб у Вашому житті було достатньо коштів на все необхідне!",
+        "Нехай всі Ваші мрії здійсняться!",
+        "Хай Ваші дні будуть наповнені радістю та щастям!",
+        "Бажаю Вам успіху в усіх починаннях!",
+        "Нехай у Вашому житті завжди панує любов та злагода!",
+        "Бажаю Вам наснаги та енергії на досягнення всіх цілей!",
+        "Хай Ваше життя буде сповнене добром та щедрістю!",
+      ];
+
+      const generator = new WishesGeneration(wishesList);
+      generator.render();
+    </script>
+  </body>
+</html>

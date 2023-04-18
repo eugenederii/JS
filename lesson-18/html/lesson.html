@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <!-- <body>
+    <script>
+      function convert() {
+        const dollarRate = parseInt(document.getElementById("course").value);
+        const grn = parseInt(document.getElementById("grn").value);
+        const dollarValue = grn / dollarRate;
+        document.getElementById("res").innerHTML = dollarValue.toFixed(2);
+      }
+      window.onload = function () {
+        document.querySelector("#grn").oninput = convert;
+      };
+    </script>
+
+    <label
+      >Course
+      <input type="number" name="" id="course" value="39" />
+    </label>
+    <label
+      >Course
+      <input type="number" name="" id="grn" value="0" />
+    </label>
+    <div>
+      <button>Convert</button>
+    </div>
+    <div>Кількість доларів = <span id="res"></span></div>
+  </body> -->
+   <script>
+     function getTotalPrice() {
+        const inputsList = document.getElementsByTagName('input')
+        let sum = 0
+        for(const input of inputsList) {
+            if(input.checked) sum += parseInt(input.value)
+        }
+        document.getElementById('result').innerHTML = sum
+     }
+    </script>
+
+    <div>
+        <h1>Drink</h1>
+        <label>
+            Tea
+            <input type="checkbox" value="10">
+        </label>
+        <label>
+            Juice
+            <input type="checkbox" value="20">
+        </label>
+        <label>
+            Coffe
+            <input type="checkbox" value="30">
+        </label>
+
+        <h1>First eat</h1>
+        <label>
+            Soup
+            <input type="checkbox" value="45">
+        </label>
+        <label>
+            Borsh
+            <input type="checkbox" value="37">
+        </label>
+
+        <h1>Second eat</h1>
+        <label>
+            Pasta
+            <input type="checkbox" value="60">
+        </label>
+        <label>
+            Kartopla
+            <input type="checkbox" value="55">
+        </label>
+        <label>
+            Mashrooms
+            <input type="checkbox" value="49">
+        </label>
+        <div>
+            <button>Розрахуувати загальну вартысть</button>
+        </div>
+    </div>
+  </body>
+</html>

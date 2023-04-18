@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Converter</title>
+    <style>
+      body {
+        font-family: Georgia, sans-serif;
+      }
+      input {
+        padding: 10px;
+        font-size: 20px;
+        border: 1px solid #4ca7d1;
+        border-radius: 30px;
+        margin-right: 10px;
+        background-color: #bbe4fc;
+      }
+      button {
+        padding: 10px 15px;
+        font-size: 16px;
+        background-color: #e7eca1;
+        color: rgb(41, 19, 26);
+        border: 1px solid #4ca7d1;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="number" id="grn" placeholder="Sum in hryvnia" />
+    <br />
+    <br />
+    <button id="convert">Convert</button>
+    <br />
+    <br />
+    <input type="number" id="dollar" placeholder="Sum in Dollars" />
+    <input type="number" id="euro" placeholder="Sum in Euro" />
+
+    <script>
+      const dollarExchangeRate = 39;
+      const euroExchangeRate = 37;
+      function convertDollar() {
+        const grn = parseFloat(document.getElementById("grn").value);
+        const dollarValue = grn / dollarExchangeRate;
+        document.getElementById("dollar").value = dollarValue.toFixed(2);
+      }
+      function convertEuro() {
+        const grn = parseFloat(document.getElementById("grn").value);
+        const euroValue = grn / euroExchangeRate;
+        document.getElementById("euro").value = euroValue.toFixed(2);
+      }
+      document.getElementById("convert").addEventListener("click", convertDollar);
+      document.getElementById("convert").addEventListener("click", convertEuro);
+    </script>
+  </body>
+</html>
