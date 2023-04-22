@@ -1,0 +1,121 @@
+body {
+  font-family: Arial, "Segoe UI", Helvetica, sans-serif;
+}
+.products-container {
+  display: flex;
+  column-gap: 20px;
+  width: 80%;
+  max-width: 1000px;
+  margin-left: 30px;
+}
+
+.products-item {
+  padding: 15px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 0 16px 24px 2px rgba(33, 37, 41, 0.02), 0 6px 30px 5px rgba(33, 37, 41, 0.04), 0 8px 10px -5px rgba(33, 37, 41, 0.1);
+}
+.products-item.selected {
+  border: 2px solid green;
+}
+.products-item:hover {
+  cursor: pointer;
+  border: 1px solid green;
+}
+
+.products-item__status_top {
+  background-color: #ffa900;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 50px;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.products-item__status_action {
+  background-color: #f84147ed;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 50px;
+  display: flex;
+  font-weight: 700;
+  width: fit-content;
+}
+
+.products-item__img {
+  margin-top: 40px;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+.products-item__title {
+  margin-top: 30px;
+  margin-bottom: auto;
+}
+.products-item__price {
+  margin-top: 20px;
+  color: #f84147ed;
+  font-size: 24px;
+}
+/* ---------------------------------------------------------------------- */
+/* task2// */
+.container {
+  display: flex;
+  column-gap: 30px;
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.all_athletes {
+  border: 2px solid black;
+  padding: 8px;
+}
+
+.selected_athletes {
+  border: 2px solid black;
+  padding: 8px;
+}
+
+.all_athletes-list {
+  padding-top: 20px;
+}
+
+.selected-athletes-list {
+  padding-top: 20px;
+}
+
+.athlete-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  padding: 3px;
+}
+
+.add-athlete-to-selected,
+.remove-athlete-from-selected {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.selected-athletes-list img {
+  margin-right: 10px;
+}
+/* ---------------------------------------------- */
+/* task3 */
+
+.snowflake {
+  width: 50px;
+  height: 50px;
+}
+
+.star {
+  position: absolute;
+  display: inline-block;
+}

@@ -1,0 +1,13 @@
+body {
+  cursor: url(../img/bomb.png);
+}
+.tank {
+  width: 80px;
+  height: 80px;
+  transform: rotate(180deg);
+}
+
+.explosion {
+  width: 100px;
+  height: 100px;
+}
