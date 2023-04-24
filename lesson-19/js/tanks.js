@@ -24,6 +24,7 @@ class Tanks {
     if (this.y > window.innerHeight) {
       this.y = 0;
       this.x = Math.random() * window.innerWidth;
+      this.maxSpeed = 30;
       this.speed = Math.random() * this.maxSpeed;
     }
   }

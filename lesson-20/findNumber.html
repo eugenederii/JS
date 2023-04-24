@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class GameNumber {
+        constructor(minV, maxV) {
+          this.minV = minV;
+          this.maxV = maxV;
+        }
+        createInputItem(title) {
+          const label = document.createElement("label");
+          label.innerText = title;
+
+          const input = document.createElement("input");
+
+          label.append(input);
+          return { label, input };
+        }
+        render() {
+          const container = document.createElement("div");
+
+          const inputObj = this.createInputItem("First user");
+          container.append(inputObj.label);
+          this.firstUserInput = inputObj.input;
+
+          const inputObj2 = this.createInputItem("Second user");
+          container.append(inputObj2.label);
+          this.secondUserInput = inputObj2.input;
+        }
+      }
+    </script>
+  </body>
+</html>
